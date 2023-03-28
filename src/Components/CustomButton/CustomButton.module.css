@@ -3,9 +3,14 @@
   padding: 1.2rem 3.2rem;
   color: var(--primary-white);
   border-radius: 50rem;
+  text-align: center;
 }
 
 .customButtonName > p {
   margin: 0;
   font-weight: bold;
+}
+
+.customButtonName :hover {
+  cursor: pointer;
 }

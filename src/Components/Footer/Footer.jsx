@@ -4,6 +4,7 @@ import { Typography } from "antd";
 
 const { Text, Link } = Typography;
 import classes from "./Footer.module.css";
+import FooterLogo from "./FooterLogo/FooterLogo";
 
 const Footer = (props) => {
   return (
@@ -62,8 +63,22 @@ const Footer = (props) => {
           <FooterLinkSection text="Address" suffix={<FooterAddress />} />
         </Col>
       </Row>
-      <FooterLogo />
+      <FooterLogo
+        padding={"0rem 10.2rem 8rem 10.2rem"}
+        backgroundColor={"var(--primary-gray)"}
+      />
     </>
+  );
+};
+
+const FooterAddress = () => {
+  return (
+    <div className={classes["footer-text-address"]}>
+      <p>
+        Malikipuram some random street, some random road, house number some
+        random district, Ambedkar konaseema ???? vaddhu.. normal konaseema ..
+      </p>
+    </div>
   );
 };
 
@@ -85,43 +100,6 @@ const FooterLinkSection = ({ text, items, suffix }) => {
         })}
       </Space>
       {suffix}
-    </Space>
-  );
-};
-
-const FooterAddress = () => {
-  return (
-    <div className={classes["footer-text-address"]}>
-      <p>
-        Malikipuram some random street, some random road, house number some
-        random district, Ambedkar konaseema ???? vaddhu.. normal konaseema ..
-      </p>
-    </div>
-  );
-};
-
-const FooterLogo = () => {
-  return (
-    <Space
-      style={{
-        padding: "0rem 10.2rem 8rem 10.2rem",
-        backgroundColor: "var(--primary-gray)",
-      }}
-      size={24}
-    >
-      <div
-        style={{
-          width: 48,
-          height: 48,
-          borderRadius: 12,
-          backgroundColor: "var(--primary-color)",
-        }}
-      ></div>
-      <Text className={classes["footer-text--link"]} style={{ lineHeight: 0 }}>
-        © 2023 - Srivani Global schools
-        <br />
-        Terms of Service Privacy Policy
-      </Text>
     </Space>
   );
 };
