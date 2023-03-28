@@ -1,0 +1,11 @@
+.customButtonName {
+  background-color: var(--primary-color);
+  padding: 1.2rem 3.2rem;
+  color: var(--primary-white);
+  border-radius: 50rem;
+}
+
+.customButtonName > p {
+  margin: 0;
+  font-weight: bold;
+}

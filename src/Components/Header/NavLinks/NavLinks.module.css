@@ -1,0 +1,8 @@
+.navlink-container {
+}
+
+.navlink-container > a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+}

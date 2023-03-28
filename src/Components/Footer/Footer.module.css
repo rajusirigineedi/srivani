@@ -1,0 +1,22 @@
+.footer {
+  background-color: var(--primary-gray);
+  padding: 8rem 10.2rem;
+}
+.footer-text--title {
+  color: var(--fontcolor-secondary);
+  font-weight: bold;
+  font-size: var(--fontsize-md);
+}
+
+.footer-text--link {
+  color: var(--fontcolor-secondary);
+  font-size: var(--fontsize-md);
+  line-height: 2.2;
+}
+
+.footer-text-address {
+  color: var(--fontcolor-secondary);
+  font-size: var(--fontsize-md);
+  max-width: 22.8rem;
+  line-height: 2.2;
+}
