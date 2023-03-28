@@ -1,22 +1,17 @@
+import EndWord from "@/Components/Home/EndWord/EndWord";
+import Landing from "@/Components/Home/Landing/Landing";
+import { Space } from "antd";
 import React from "react";
 const Home = (props) => {
   return (
-    <div style={{ height: "400px", padding: 48 }}>
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-      This is home page. we will connect it later after clearing the components.
-    </div>
+    <Space direction="vertical">
+      <section>
+        <Landing />
+      </section>
+      <section>
+        <EndWord />
+      </section>
+    </Space>
   );
 };
 

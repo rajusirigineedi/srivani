@@ -1,0 +1,14 @@
+.bigtitle {
+  text-align: center;
+  width: 100%;
+  padding: 0 14%;
+}
+.bigtitle--heading {
+  font-size: var(--fontsize-xxl);
+  font-weight: bold;
+}
+
+.bigtitle--subheading {
+  font-size: var(--fontsize-lg);
+  color: var(--fontcolor-secondary);
+}
