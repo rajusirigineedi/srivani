@@ -1,18 +1,32 @@
 import CustomButton from "@/Components/CustomButton/CustomButton";
-import { Col, Row, Space, Typography } from "antd";
+import { Carousel, Col, Image, Row, Space, Typography } from "antd";
 import React from "react";
 import classes from "./Landing.module.css";
 
+const contentStyle = {
+  height: "70vh",
+  width: "100%",
+  background: "var(--primary-color)",
+  display: "grid",
+  placeItems: "center",
+  borderRadius: "1.2rem",
+};
+
 const { Text } = Typography;
 const Landing = (props) => {
+  const imageList = [
+    "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+    "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+    "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+  ];
   return (
     <div className={classes["home-landing"]}>
       <Row className={classes["home-landing-row"]} align="middle">
         <Col
           xs={24}
           sm={24}
-          md={12}
-          lg={12}
+          md={9}
+          lg={9}
           className={classes["home-landing-columns"]}
         >
           <Space direction="vertical" align="start" size={24}>
@@ -42,11 +56,31 @@ const Landing = (props) => {
         <Col
           xs={24}
           sm={24}
-          md={12}
-          lg={12}
-          className={classes["home-landing-columns"]}
+          md={15}
+          lg={15}
+          style={{
+            paddingTop: "5vh",
+            paddingBottom: "5vh",
+            height: "80vh",
+          }}
+          // className={classes["home-landing-columns"]}
         >
-          Carousel
+          <Carousel autoplay>
+            {imageList.map((imageUrl, index) => (
+              <div key={index}>
+                <div style={contentStyle}>
+                  <Image
+                    preview={false}
+                    width={"100%"}
+                    height={"100%"}
+                    style={{ objectFit: "cover" }}
+                    alt="imagepreview"
+                    src={imageUrl}
+                  />
+                </div>
+              </div>
+            ))}
+          </Carousel>
         </Col>
       </Row>
       <div className={classes["home-landing-bottombar"]}>

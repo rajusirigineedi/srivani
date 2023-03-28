@@ -15,7 +15,7 @@ const BigTitle = ({ title, subTitle, colorIndex }) => {
               className={classes["bigtitle--heading"]}
               style={{
                 color:
-                  index in colorIndex
+                  index in (colorIndex || [])
                     ? "var(--primary-color)"
                     : "var(--fontcolor-primary)",
               }}

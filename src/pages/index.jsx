@@ -1,4 +1,5 @@
 import EndWord from "@/Components/Home/EndWord/EndWord";
+import EventSection from "@/Components/Home/EventSection/EventSection";
 import Landing from "@/Components/Home/Landing/Landing";
 import { Space } from "antd";
 import React from "react";
@@ -7,6 +8,9 @@ const Home = (props) => {
     <Space direction="vertical">
       <section>
         <Landing />
+      </section>
+      <section>
+        <EventSection />
       </section>
       <section>
         <EndWord />
