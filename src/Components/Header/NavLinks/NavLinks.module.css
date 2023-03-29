@@ -8,3 +8,8 @@
   /* font-weight: bold; */
   font-size: var(--fontsize-md);
 }
+
+.activeNavLink a {
+  font-weight: bold;
+  color: var(--primary-color);
+}
