@@ -12,3 +12,9 @@
   font-size: var(--fontsize-lg);
   color: var(--fontcolor-secondary);
 }
+
+.bigtitle--heading-xl {
+  font-size: 7.2rem;
+  line-height: normal;
+  font-weight: 900;
+}

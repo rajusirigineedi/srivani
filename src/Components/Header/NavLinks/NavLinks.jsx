@@ -14,9 +14,9 @@ export const NavLinks = ({ direction }) => {
     >
       <ActiveNavLinks url="/" text="Home" activePath={pathname} />
       <ActiveNavLinks url="/campus" text="Campus" activePath={pathname} />
-      <ActiveNavLinks url="/aboutus" text="About us" activePath={pathname} />
+      <ActiveNavLinks url="/about" text="About us" activePath={pathname} />
       <ActiveNavLinks
-        url="/acheivemnts"
+        url="/acheivements"
         text="Student Acheivements"
         activePath={pathname}
       />

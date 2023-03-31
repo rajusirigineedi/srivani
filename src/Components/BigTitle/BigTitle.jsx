@@ -4,7 +4,7 @@ import React from "react";
 import classes from "./BigTitle.module.css";
 
 const { Text } = Typography;
-const BigTitle = ({ title, subTitle, colorIndex }) => {
+const BigTitle = ({ title, subTitle, colorIndex, textSize }) => {
   const splitWordMap = title.split(" ").map((word, index) => {
     return {
       word,
@@ -18,7 +18,11 @@ const BigTitle = ({ title, subTitle, colorIndex }) => {
           return (
             <Text
               key={item.index}
-              className={classes["bigtitle--heading"]}
+              className={`${
+                textSize === "lg"
+                  ? classes["bigtitle--heading-xl"]
+                  : classes["bigtitle--heading"]
+              }`}
               style={{
                 color:
                   colorIndex && colorIndex.includes(item.index)
