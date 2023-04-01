@@ -1,5 +1,6 @@
 import useFolderImageshook from "@/hooks/useFolderImageshook";
 import { Col, Image, Row, Space, Typography } from "antd";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./FolderGallery.module.css";
@@ -49,7 +50,6 @@ const FolderGallery = () => {
         >
           <GalleryThumbnailImage
             folder={folderState?.[0]?.folder}
-            title={folderState?.[0]?.title}
             image={folderState?.[0]?.image}
           />
         </Col>
@@ -64,7 +64,6 @@ const FolderGallery = () => {
             >
               <GalleryThumbnailImage
                 folder={folderState?.[1]?.folder}
-                title={folderState?.[1]?.title}
                 image={folderState?.[1]?.image}
               />
             </Col>
@@ -77,7 +76,6 @@ const FolderGallery = () => {
             >
               <GalleryThumbnailImage
                 folder={folderState?.[2]?.folder}
-                title={folderState?.[2]?.title}
                 image={folderState?.[2]?.image}
               />
             </Col>
@@ -96,10 +94,22 @@ const FolderGallery = () => {
   );
 };
 
-const GalleryThumbnailImage = ({ image, title, folder }) => {
+const GalleryThumbnailImage = ({ image, folder }) => {
+  const router = useRouter();
   return (
     <div className={classes["thumbnail-image"]}>
-      <div className={classes["thumbnail-overlay"]}>
+      <div
+        className={classes["thumbnail-overlay"]}
+        onClick={() => {
+          console.log("clickding ");
+          router.push({
+            pathname: "/gallery",
+            query: {
+              albumName: folder,
+            },
+          });
+        }}
+      >
         <Text
           style={{
             color: "var(--primary-white)",
@@ -120,7 +130,6 @@ const GalleryThumbnailImage = ({ image, title, folder }) => {
         }}
         alt="imagepreview"
         src={image}
-        onClick={() => {}}
       />
     </div>
   );
