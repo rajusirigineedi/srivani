@@ -1,0 +1,22 @@
+.thumbnail-image {
+  height: 100%;
+  width: 100%;
+  padding: 0.4rem;
+}
+
+.thumbnail-overlay :hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  z-index: 999;
+  background-color: var(--primary-color);
+  width: 100%;
+  opacity: 70%;
+  height: 100%;
+}

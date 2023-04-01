@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const { Space, Row, Col, Image, Typography } = require("antd");
 const { default: BigTitle } = require("../BigTitle/BigTitle");
@@ -6,14 +6,33 @@ const { default: CustomButton } = require("../CustomButton/CustomButton");
 
 const { Text } = Typography;
 
-export const MiniGallery = ({
-  imageList,
-  title,
-  subTitle,
-  prevClickHandler,
-  nextClickHandler,
-}) => {
+export const MiniGallery = ({ imageList, title, subTitle }) => {
   const [activeImage, setActiveImage] = useState();
+  const [pageNum, setPageNum] = useState(0);
+  const [galleryImages, setGalleryImages] = useState();
+  const imagelimit = 7;
+
+  useEffect(() => {
+    const _imageList = imageList?.slice(
+      pageNum * imagelimit,
+      pageNum * imagelimit + imagelimit
+    );
+    if (_imageList?.length < imagelimit) {
+      setGalleryImages(imageList?.slice(-imagelimit));
+      return;
+    }
+    setGalleryImages(_imageList);
+  }, [pageNum, imageList]);
+
+  const prevClickHandler = () => {
+    if (pageNum === 0) return;
+    setPageNum((prev) => prev - 1);
+  };
+
+  const nextClickHandler = () => {
+    if (pageNum + 1 > imageList?.length / imagelimit) return;
+    setPageNum((prev) => prev + 1);
+  };
 
   const onImageClick = (obj) => {
     setActiveImage(obj);
@@ -62,26 +81,54 @@ export const MiniGallery = ({
               <ImageBox
                 buttonName="prev"
                 onClick={() => {
-                  // load previous 6 images. set Each imageList[i] = new Image.
+                  // load previous 6 images. set Each galleryImages[i] = new Image.
                   // setTitle() if new block of images needed.
                   prevClickHandler();
                 }}
               />
-              <ImageBox onClick={onImageClick} imageUrl={imageList[0]} />
-              <ImageBox onClick={onImageClick} imageUrl={imageList[1]} />
+              <ImageBox
+                onClick={onImageClick}
+                imageUrl={galleryImages?.[0]?.image}
+                title={galleryImages?.[0]?.title}
+              />
+              <ImageBox
+                onClick={onImageClick}
+                imageUrl={galleryImages?.[1]?.image}
+                title={galleryImages?.[1]?.title}
+              />
             </Space>
           </Col>
           <Col>
             <Space direction="vertical" size={24}>
-              <ImageBox onClick={onImageClick} imageUrl={imageList[2]} />
-              <ImageBox onClick={onImageClick} imageUrl={imageList[3]} />
-              <ImageBox onClick={onImageClick} imageUrl={imageList[4]} />
+              <ImageBox
+                onClick={onImageClick}
+                imageUrl={galleryImages?.[2]?.image}
+                title={galleryImages?.[2]?.title}
+              />
+              <ImageBox
+                onClick={onImageClick}
+                imageUrl={galleryImages?.[3]?.image}
+                title={galleryImages?.[3]?.title}
+              />
+              <ImageBox
+                onClick={onImageClick}
+                imageUrl={galleryImages?.[4]?.image}
+                title={galleryImages?.[4]?.title}
+              />
             </Space>
           </Col>
           <Col>
             <Space direction="vertical" size={24}>
-              <ImageBox onClick={onImageClick} imageUrl={imageList[5]} />
-              <ImageBox onClick={onImageClick} imageUrl={imageList[6]} />
+              <ImageBox
+                onClick={onImageClick}
+                imageUrl={galleryImages?.[5]?.image}
+                title={galleryImages?.[5]?.title}
+              />
+              <ImageBox
+                onClick={onImageClick}
+                imageUrl={galleryImages?.[6]?.image}
+                title={galleryImages?.[6]?.title}
+              />
               <ImageBox
                 buttonName="next"
                 onClick={() => {
@@ -101,7 +148,7 @@ export const MiniGallery = ({
   );
 };
 
-const ImageBox = ({ buttonName, onClick, imageUrl }) => {
+const ImageBox = ({ buttonName, onClick, imageUrl, title }) => {
   return (
     <div
       style={{
@@ -121,11 +168,11 @@ const ImageBox = ({ buttonName, onClick, imageUrl }) => {
           height={"100%"}
           style={{ objectFit: "cover", cursor: "pointer" }}
           alt="imagepreview"
-          src={imageUrl}
+          src={imageUrl} // TODO: No image url ...
           onClick={() => {
             onClick({
               imageUrl,
-              text: "our friedn bdc naidu won first place in not completing any task at a given time. some tesxt which is quite big and some long o",
+              text: title,
             });
           }}
         />
