@@ -41,10 +41,9 @@ export const MiniGallery = ({ imageList, title, subTitle }) => {
   return (
     <Space
       direction="vertical"
-      align="center"
+      // align="center"
       style={{
         width: "100%",
-        marginTop: 96,
       }}
       size={24}
     >
@@ -57,9 +56,20 @@ export const MiniGallery = ({ imageList, title, subTitle }) => {
         <Space
           width={"94.8rem"}
           height={"64.8rem"}
-          style={{ position: "relative" }}
+          style={{
+            position: "relative",
+            width: "100%",
+            justifyContent: "center",
+          }}
         >
-          <div style={{ position: "absolute", zIndex: 99, top: 48, left: 48 }}>
+          <div
+            style={{
+              position: "absolute",
+              zIndex: 99,
+              top: 48,
+              left: "calc(50% - 47.2rem + 4.8rem)",
+            }}
+          >
             <CustomButton
               onClick={() => setActiveImage(undefined)}
               text="Back"
@@ -140,10 +150,20 @@ export const MiniGallery = ({ imageList, title, subTitle }) => {
           </Col>
         </Row>
       )}
-      <Text style={{ color: "var(--fontcolor-secondary)" }}>
-        The future belongs to our students, and we are dedicated to helping them
-        realize their dreams and achieve their goals.
-      </Text>
+      <div
+        style={{
+          textAlign: "center",
+        }}
+      >
+        <Text
+          style={{
+            color: "var(--fontcolor-secondary)",
+          }}
+        >
+          The future belongs to our students, and we are dedicated to helping
+          them realize their dreams and achieve their goals.
+        </Text>
+      </div>
     </Space>
   );
 };
