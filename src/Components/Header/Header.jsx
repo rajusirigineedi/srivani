@@ -14,10 +14,6 @@ const CustomHeader = (props) => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   useEffect(() => {
-    console.log("show Hambur ", showHamburger);
-  }, [showHamburger]);
-
-  useEffect(() => {
     const { xl, xxl, sm, md, xs, lg } = screens;
     if (xxl || xl || lg) {
       setShowHamburger(false);

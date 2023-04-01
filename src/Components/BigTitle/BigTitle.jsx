@@ -4,8 +4,8 @@ import React from "react";
 import classes from "./BigTitle.module.css";
 
 const { Text } = Typography;
-const BigTitle = ({ title, subTitle, colorIndex }) => {
-  const splitWordMap = title.split(" ").map((word, index) => {
+const BigTitle = ({ title, subTitle, colorIndex, textSize }) => {
+  const splitWordMap = title?.split(" ").map((word, index) => {
     return {
       word,
       index,
@@ -14,11 +14,15 @@ const BigTitle = ({ title, subTitle, colorIndex }) => {
   return (
     <Space direction="vertical" className={classes["bigtitle"]} size={24}>
       <div>
-        {splitWordMap.map((item) => {
+        {splitWordMap?.map((item) => {
           return (
             <Text
               key={item.index}
-              className={classes["bigtitle--heading"]}
+              className={`${
+                textSize === "lg"
+                  ? classes["bigtitle--heading-xl"]
+                  : classes["bigtitle--heading"]
+              }`}
               style={{
                 color:
                   colorIndex && colorIndex.includes(item.index)
@@ -32,7 +36,7 @@ const BigTitle = ({ title, subTitle, colorIndex }) => {
         })}
       </div>
 
-      <div style={{ padding: splitWordMap.length > 5 ? "0 20%" : "0" }}>
+      <div style={{ padding: splitWordMap?.length > 5 ? "0 20%" : "0" }}>
         <Text className={classes["bigtitle--subheading"]}>{subTitle}</Text>
       </div>
     </Space>

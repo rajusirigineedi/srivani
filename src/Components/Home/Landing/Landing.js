@@ -1,12 +1,12 @@
 import CustomButton from "@/Components/CustomButton/CustomButton";
+import useFolderImageshook from "@/hooks/useFolderImageshook";
 import { Carousel, Col, Image, Row, Space, Typography } from "antd";
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import classes from "./Landing.module.css";
 
 const contentStyle = {
   height: "70vh",
   width: "100%",
-  background: "var(--primary-color)",
   display: "grid",
   placeItems: "center",
   borderRadius: "1.2rem",
@@ -14,11 +14,20 @@ const contentStyle = {
 
 const { Text } = Typography;
 const Landing = (props) => {
-  const imageList = [
-    "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
-    "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
-    "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
-  ];
+  const { getFolderImages, getFolderThumbnails } = useFolderImageshook();
+  const [hell, setHell] = useState();
+
+  const imageList = useMemo(
+    () => getFolderImages("HomePage"),
+    [getFolderImages]
+  );
+
+  const allThumbnails = getFolderThumbnails();
+
+  useEffect(() => {
+    setHell(imageList);
+  }, [imageList, allThumbnails]);
+
   return (
     <div className={classes["home-landing"]}>
       <Row className={classes["home-landing-row"]} align="middle">
@@ -66,7 +75,7 @@ const Landing = (props) => {
           // className={classes["home-landing-columns"]}
         >
           <Carousel autoplay>
-            {imageList.map((imageUrl, index) => (
+            {imageList?.map((imageUrl, index) => (
               <div key={index}>
                 <div style={contentStyle}>
                   <Image
@@ -75,7 +84,7 @@ const Landing = (props) => {
                     height={"100%"}
                     style={{ objectFit: "cover" }}
                     alt="imagepreview"
-                    src={imageUrl}
+                    src={imageUrl.image}
                   />
                 </div>
               </div>

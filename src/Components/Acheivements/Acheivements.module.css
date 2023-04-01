@@ -1,0 +1,7 @@
+.contentStyle {
+  height: 60vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  filter: brightness(0.6);
+}
