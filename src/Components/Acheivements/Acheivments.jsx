@@ -1,6 +1,6 @@
 import useFolderImageshook from "@/hooks/useFolderImageshook";
 import { Carousel, Col, Image, Row, Space, Typography } from "antd";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import BigTitle from "../BigTitle/BigTitle";
 import CustomButton from "../CustomButton/CustomButton";
 import { MiniGallery } from "../MiniGallery/MiniGallery";
@@ -11,12 +11,15 @@ const Acheivments = (props) => {
   const [carouselImages, setCarouselImages] = useState();
   const [totalData, setTotalData] = useState();
   const { getFolderImages } = useFolderImageshook();
+  const _folderImages = useMemo(
+    () => getFolderImages("Student Acheivements"),
+    [getFolderImages]
+  );
 
   useEffect(() => {
-    const data = getFolderImages("Student Acheivements");
-    setTotalData(data);
-    setCarouselImages(data?.slice(0, 3));
-  }, [getFolderImages]);
+    setTotalData(_folderImages);
+    setCarouselImages(_folderImages?.slice(0, 3));
+  }, [_folderImages]);
 
   // init state here for title and subtitle.
   // onclck handlers as well.

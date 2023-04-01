@@ -1,15 +1,20 @@
 import useFolderImageshook from "@/hooks/useFolderImageshook";
 import { Col, Image, Row, Space, Typography } from "antd";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import classes from "./FolderGallery.module.css";
 
 const { Text } = Typography;
 const FolderGallery = () => {
   const { getFolderThumbnails } = useFolderImageshook();
+  const _folderThumbnails = useMemo(
+    () => getFolderThumbnails(),
+    [getFolderThumbnails]
+  );
+  const [folderImagesWithTitles, setFolderImagesWithTitles] =
+    useState(_folderThumbnails);
   const [folderState, setFolderState] = useState();
-  const [folderImagesWithTitles, setFolderImagesWithTitles] = useState();
   const [pageNum, setPageNum] = useState(0);
   const folderLimit = 3;
 
@@ -26,8 +31,8 @@ const FolderGallery = () => {
   }, [pageNum, folderImagesWithTitles]);
 
   useEffect(() => {
-    setFolderImagesWithTitles(getFolderThumbnails());
-  }, [getFolderThumbnails]);
+    setFolderImagesWithTitles(_folderThumbnails);
+  }, [_folderThumbnails]);
 
   const prevClickHandler = () => {
     if (pageNum === 0) return;

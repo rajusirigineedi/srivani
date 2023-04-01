@@ -1,15 +1,29 @@
 import BigTitle from "@/Components/BigTitle/BigTitle";
 import { Col, Row, Space, Typography } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Radio } from "antd";
 import CustomButton from "@/Components/CustomButton/CustomButton";
 import Image from "next/image";
+import useFolderImageshook from "@/hooks/useFolderImageshook";
+import { useRouter } from "next/router";
 
 const { Text } = Typography;
 
+const options = ["Culturals", "Acheivements", "Events", "Campus"];
 const EventSection = (props) => {
-  const options = ["Culturals", "Acheivements", "Events", "Gallery"];
   const [currTab, setCurrTab] = useState(options[0]);
+  const [currImage, setCurrImage] = useState();
+  const { getFolderImages } = useFolderImageshook();
+  const router = useRouter();
+  const homePageEventImages = useMemo(
+    () => getFolderImages("HomePage Images2"),
+    [getFolderImages]
+  );
+
+  useEffect(() => {
+    const index = options.findIndex((item) => item === currTab);
+    if (index !== -1) setCurrImage(homePageEventImages?.[index]);
+  }, [currTab, homePageEventImages]);
 
   return (
     <Space
@@ -65,7 +79,7 @@ const EventSection = (props) => {
                 fontSize: "var(--fontsize-xl)",
               }}
             >
-              Seventh class student cracked Microsoft with 69LPA
+              {currImage?.title}
             </Text>
             <Text
               style={{
@@ -73,12 +87,20 @@ const EventSection = (props) => {
                 fontSize: "var(--fontsize-lg)",
               }}
             >
-              We are proud of this student who cracked microsoft in just one
-              attemp and bagged a package of 69LPA, that cant even a graduated
-              enEgineer from IIT cant do. Yes it is possible because he is our
-              student.
+              {currImage?.info}
             </Text>
-            <CustomButton text={`View ${currTab}`} size="md" />
+            <CustomButton
+              onClick={() => {
+                let _route;
+                if (currTab === options[0] || currTab === options[2])
+                  _route = "/events";
+                else if (currTab === options[1]) _route = "/acheivements";
+                else _route = "/campus";
+                router.push(_route);
+              }}
+              text={`View ${currTab}`}
+              size="md"
+            />
           </Space>
         </Col>
         <Col
@@ -96,14 +118,13 @@ const EventSection = (props) => {
         >
           <Image
             style={{
-              backgroundColor: "red",
               borderRadius: "0.8rem",
             }}
             width={"100%"}
             height={"100%"}
             objectFit={"cover"}
             layout={"fill"}
-            src={"https://picsum.photos/200/300"}
+            src={currImage?.image}
             alt={"image"}
           />
         </Col>

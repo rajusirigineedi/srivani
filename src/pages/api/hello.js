@@ -270,4 +270,60 @@ let obj = [
       },
     ],
   },
+  {
+    folder: "HomePage",
+    title: "Home page carousel images",
+    images: [
+      {
+        title: "home1",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      },
+      {
+        title: "home2",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      },
+      {
+        title: "home3",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      },
+      {
+        title: "home4",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      },
+    ],
+  },
+  {
+    folder: "HomePage Images2",
+    title: "Home page events section images",
+    images: [
+      {
+        title: "Seventh class student cracked Microsoft with 69LPA",
+        info: "We are proud of this student who cracked microsoft in just one attemp and bagged a package of 69LPA, that cant even a graduated enEgineer from IIT cant do. Yes it is possible because he is our student.",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      },
+      {
+        title: "Eighth class student cracked Microsoft with 69LPA",
+        info: "We are proud of this student who cracked microsoft in just one attemp and bagged a package of 69LPA, that cant even a graduated enEgineer from IIT cant do. Yes it is possible because he is our student.",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      },
+      {
+        title: "Ninth class student cracked Microsoft with 69LPA",
+        info: "We are proud of this student who cracked microsoft in just one attemp and bagged a package of 69LPA, that cant even a graduated enEgineer from IIT cant do. Yes it is possible because he is our student.",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      },
+      {
+        title: "Tenth class student cracked Microsoft with 69LPA",
+        info: "We are proud of this student who cracked microsoft in just one attemp and bagged a package of 69LPA, that cant even a graduated enEgineer from IIT cant do. Yes it is possible because he is our student.",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      },
+    ],
+  },
 ];
