@@ -21,19 +21,19 @@ const test = (props) => {
       school is helping to shape the next generation of leaders and innovators"/>
 
 
-      <div style={{ height: "150px" }}>
+      <div style={{height:"150px"}}>
 
       </div>
 
 
       <Directors image="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-        title="Raviteja Sunkara"
+        title="Raviteja Sunkara" 
         subTitle="Director and vice president, MBBS FRCS"
         text="New methods in the teaching."
-        paragraph="By encouraging curiosity, exploration, and a love of learning, we are empowering our students to achieve their full potential and make a positive impact on the world."
-      />
-
-      <div style={{ height: "150px" }}>
+        paragraph="By encouraging curiosity, exploration, and a love of learning, we are empowering our students to achieve their full potential and make a positive impact on the world." 
+      />      
+      
+      <div style={{height:"150px"}}>
 
       </div>
 
@@ -51,9 +51,9 @@ const test = (props) => {
           paragraph="Drag and drop elements - quickly and easily - from a comprehensive library of widgets and smart-shapes."
         />
       </Space>
+      
+      <div style={{height:"150px"}}>
 
-      <div style={{ height: "150px" }}>
-          
       </div>
       <div style={{ margin: "100px" }}>
         <CommentCard
@@ -63,7 +63,7 @@ const test = (props) => {
         />
       </div>
 
-      <Contact />
+      <Contact/>
     </div>
   );
 };
