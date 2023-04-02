@@ -44,6 +44,7 @@ export const MiniGallery = ({ imageList, title, subTitle }) => {
       // align="center"
       style={{
         width: "100%",
+        marginTop: 72,
       }}
       size={24}
     >
