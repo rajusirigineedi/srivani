@@ -1,0 +1,20 @@
+.title {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.subTitle {
+    font-size: small;
+    color: var(--fontcolor-secondary);
+}
+
+.text{
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.paragraph {
+    width: 313px;
+    color: var(--fontcolor-secondary);
+}
