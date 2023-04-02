@@ -1,0 +1,35 @@
+.card {
+    width: 300px;
+    min-height: 150px;
+    background-color: #fff;
+    border: 1px solid var(--primary-gray);
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .card > .header {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    margin-right: 12px;
+  }
+  .card > .header > .icon {
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    border-radius: 100px;
+    margin-right: 10px;
+    margin-top: 8px;
+  }
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 30px 10px 30px;
+  }
+  .body {
+    margin: 12px 30px 10px 30px;
+    text-align: left;
+  }
+  .titleAndRole {
+    text-align: left;
+  }

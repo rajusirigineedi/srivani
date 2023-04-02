@@ -5,6 +5,7 @@ import Features from "@/Components/Features/Features";
 import React from "react";
 import { Space } from "antd";
 import Contact from "@/Components/Contact/Contact";
+import DirectorCard from "@/Components/DirectorCard/DirectorCard";
 
 const test = (props) => {
   return (
@@ -54,6 +55,10 @@ const test = (props) => {
       <div style={{height:"150px"}}>
 
       </div>
+      <DirectorCard title="Raviteja Sunkara"
+      rolee="10th Class,Section A"
+      description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
+      />
 
       <Contact/>
     </div>
