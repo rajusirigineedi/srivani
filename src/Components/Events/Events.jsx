@@ -9,7 +9,7 @@ const Events = (props) => {
       direction="vertical"
       size={72}
       align="center"
-      style={{ width: "100%" }}
+      style={{ width: "100%", marginTop: 72 }}
     >
       <BigTitle
         title="Events and Celebrations"

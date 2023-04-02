@@ -111,8 +111,6 @@ const EventSection = (props) => {
           style={{
             height: "50vh",
             paddingLeft: 12,
-            backgroundColor: "green",
-            // border: "0.8rem solid var(--primary-color)",
             borderRadius: "0.8rem",
           }}
         >

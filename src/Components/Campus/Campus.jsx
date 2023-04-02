@@ -8,13 +8,18 @@ const { Text } = Typography;
 const CampusComponent = (props) => {
   const router = useRouter();
   return (
-    <Space direction="vertical" align="center" size={48}>
+    <Space
+      direction="vertical"
+      align="center"
+      size={48}
+      style={{ marginTop: 72 }}
+    >
       <BigTitle
         title="Srivani Global School Campus"
         colorIndex={[0, 1, 2]}
         subTitle="The future belongs to our students, and we are dedicated to helping them realize their dreams and achieve their goals."
       />
-      <div style={{ width: "100vw", height: "60vh", backgroundColor: "green" }}>
+      <div style={{ width: "100vw", height: "60vh" }}>
         <Image
           preview={false}
           height="100%"
