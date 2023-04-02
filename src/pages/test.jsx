@@ -4,6 +4,7 @@ import Directors from "@/Components/Directors/Directors";
 import Features from "@/Components/Features/Features";
 import React from "react";
 import { Space } from "antd";
+import Contact from "@/Components/Contact/Contact";
 
 const test = (props) => {
   return (
@@ -50,6 +51,11 @@ const test = (props) => {
         />
       </Space>
       
+      <div style={{height:"150px"}}>
+
+      </div>
+
+      <Contact/>
     </div>
   );
 };

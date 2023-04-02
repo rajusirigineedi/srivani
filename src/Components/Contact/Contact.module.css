@@ -1,0 +1,21 @@
+.input1 {
+    width: 300px;
+    height: 35px;
+    border-radius: 25px;
+    border: 1px solid var(--fontcolor-secondary);;
+    margin-bottom: 1rem;
+}
+
+.input2 {
+    width: 300px;
+    height: 35px;
+    border-radius: 25px;
+    border: 1px solid var(--fontcolor-secondary);
+    margin-bottom: 1rem;
+}
+
+.textArea {
+    width: 900px;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
