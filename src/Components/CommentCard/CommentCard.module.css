@@ -1,0 +1,7 @@
+.space {
+    border: 1px solid var(--primary-gray);
+}
+
+.mainTitle {
+    font-weight: bold;
+}
