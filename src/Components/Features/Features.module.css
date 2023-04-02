@@ -1,0 +1,15 @@
+.logo {
+    border-radius: 50%;
+}
+
+.text {
+    font-weight: bolder;
+    font-size: larger;
+    width: 212px;
+    text-align: center;
+}
+
+.paragraph {
+    width: 300px;
+    text-align: center;
+}
