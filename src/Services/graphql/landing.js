@@ -30,12 +30,16 @@ export const GetLandingPageDetails = gql`
           title
           subtitle
           ContentImageLilst {
-            text
-            subtext
-            image {
-              data {
-                attributes {
-                  url
+            data {
+              attributes {
+                title
+                info
+                image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
                 }
               }
             }

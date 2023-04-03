@@ -11,11 +11,11 @@ const { Text } = Typography;
 const options = ["Culturals", "Acheivements", "Events", "Campus"];
 const EventSection = (props) => {
   const { title, subtitle, imageList } = props;
-  const eventsImageList = imageList.map((imageEntry) => {
+  const eventsImageList = imageList.data.map((imageEntry) => {
     return {
-      text: imageEntry.text,
-      subtext: imageEntry.subtext,
-      imageUrl: imageEntry.image.data.attributes.url,
+      title: imageEntry.attributes.title,
+      info: imageEntry.attributes.info,
+      imageUrl: imageEntry.attributes.image.data.attributes.url,
     };
   });
   const [currTab, setCurrTab] = useState(options[0]);
@@ -73,7 +73,7 @@ const EventSection = (props) => {
                 fontSize: "var(--fontsize-xl)",
               }}
             >
-              {currImage?.text}
+              {currImage?.title}
             </Text>
             <Text
               style={{
@@ -81,7 +81,7 @@ const EventSection = (props) => {
                 fontSize: "var(--fontsize-lg)",
               }}
             >
-              {currImage?.subtext}
+              {currImage?.info}
             </Text>
             <CustomButton
               onClick={() => {
