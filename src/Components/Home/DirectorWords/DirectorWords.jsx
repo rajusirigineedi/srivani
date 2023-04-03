@@ -1,5 +1,4 @@
 import BigTitle from "@/Components/BigTitle/BigTitle";
-import DirectorCard from "@/Components/DirectorCard/DirectorCard";
 import Directors from "@/Components/Directors/Directors";
 import { Col, Row, Space } from "antd";
 import React from "react";

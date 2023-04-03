@@ -1,8 +1,8 @@
 import BigTitle from "@/Components/BigTitle/BigTitle";
 import CustomButton from "@/Components/CustomButton/CustomButton";
-import DirectorCard from "@/Components/DirectorCard/DirectorCard";
 import { Col, Row, Space } from "antd";
 import React from "react";
+import CommentCard from '../../CommentCard/CommentCard';
 
 const Testimonials = (props) => {
   return (
@@ -19,37 +19,37 @@ const Testimonials = (props) => {
       />
       <Row gutter={[24, 24]} justify="center" style={{ padding: "0 20%" }}>
         <Col>
-          <DirectorCard
-            title="Raviteja Sunkara"
-            rolee="10th Class,Section A"
+          <CommentCard
+            mainTitle="Raviteja Sunkara"
+            subTitle="10th Class,Section A"
             description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
           />
         </Col>
         <Col>
-          <DirectorCard
-            title="Raviteja Sunkara"
-            rolee="10th Class,Section A"
+          <CommentCard
+            mainTitle="Raviteja Sunkara"
+            subTitle="10th Class,Section A"
             description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
           />
         </Col>
         <Col>
-          <DirectorCard
-            title="Raviteja Sunkara"
-            rolee="10th Class,Section A"
+          <CommentCard
+            mainTitle="Raviteja Sunkara"
+            subTitle="10th Class,Section A"
             description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
           />
         </Col>
         <Col>
-          <DirectorCard
-            title="Raviteja Sunkara"
-            rolee="10th Class,Section A"
+          <CommentCard
+            mainTitle="Raviteja Sunkara"
+            subTitle="10th Class,Section A"
             description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
           />
         </Col>
         <Col>
-          <DirectorCard
-            title="Raviteja Sunkara"
-            rolee="10th Class,Section A"
+          <CommentCard
+            mainTitle="Raviteja Sunkara"
+            subTitle="10th Class,Section A"
             description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
           />
         </Col>
