@@ -10,8 +10,8 @@ const AboutUsLanding = (props) => {
     <Space
       direction="vertical"
       align="center"
-      style={{ width: "100%" }}
-      size={24}
+      style={{ width: "100%", marginTop: 96 }}
+      size={48}
     >
       <BigTitle
         title="SRIVANI GLOBAL SCHOOL"

@@ -4,17 +4,14 @@ import Acheivments from "@/Components/Acheivements/Acheivments";
 import EndWord from "@/Components/Home/EndWord/EndWord";
 import { Space } from "antd";
 import CampusComponent from "@/Components/Campus/Campus";
+import DirectorWords from "@/Components/Home/DirectorWords/DirectorWords";
 
 const Campus = (props) => {
   return (
     <Space direction="vertical">
-      <section>
-        <CampusComponent />
-      </section>
-
-      <section>
-        <EndWord />
-      </section>
+      <CampusComponent />
+      <DirectorWords />
+      <EndWord />
     </Space>
   );
 };
