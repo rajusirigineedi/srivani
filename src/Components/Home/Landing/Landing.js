@@ -14,19 +14,8 @@ const contentStyle = {
 
 const { Text } = Typography;
 const Landing = (props) => {
-  const { getFolderImages, getFolderThumbnails } = useFolderImageshook();
-  const [hell, setHell] = useState();
-
-  const imageList = useMemo(
-    () => getFolderImages("HomePage"),
-    [getFolderImages]
-  );
-
-  const allThumbnails = getFolderThumbnails();
-
-  useEffect(() => {
-    setHell(imageList);
-  }, [imageList, allThumbnails]);
+  const { MainHeading, MainSubtitle, CarouselImages, NotificationString } =
+    props;
 
   return (
     <div className={classes["home-landing"]}>
@@ -44,15 +33,14 @@ const Landing = (props) => {
                 className={classes["landing-text--primary"]}
                 style={{ color: "var(--primary-color)" }}
               >
-                Srivani Global School
+                {MainHeading}
               </Text>
               <Text className={classes["landing-text--primary"]}>
                 Enlighting the future 🚀
               </Text>
             </Space>
             <Text className={classes["landing-text--secondary"]}>
-              Our mission is to ikkda emojis vasthey baaguntaay emo?? choodu
-              kkda emojis vasthey baaguntaay emo?? choodu elaa untaayo 🚘
+              {MainSubtitle}
             </Text>
             <Space direction="vertical" style={{ textAlign: "center" }}>
               <CustomButton text={"Join today !"} size="lg" />
@@ -75,7 +63,7 @@ const Landing = (props) => {
           // className={classes["home-landing-columns"]}
         >
           <Carousel autoplay>
-            {imageList?.map((imageUrl, index) => (
+            {CarouselImages?.map((imageUrl, index) => (
               <div key={index}>
                 <div style={contentStyle}>
                   <Image
@@ -84,7 +72,7 @@ const Landing = (props) => {
                     height={"100%"}
                     style={{ objectFit: "cover" }}
                     alt="imagepreview"
-                    src={imageUrl.image}
+                    src={imageUrl}
                   />
                 </div>
               </div>
@@ -95,9 +83,7 @@ const Landing = (props) => {
       <div className={classes["home-landing-bottombar"]}>
         <div className={classes["home-landing-bottombar-text"]}>
           <Text style={{ color: "var(--primary-white)" }}>
-            Our goal is to prepare our students for the challenges and
-            opportunities that lie ahead, so that they can thrive in a rapidly
-            changing world
+            {NotificationString}
           </Text>
         </div>
         <div className={classes["home-landing-bottombar-down"]}>V</div>

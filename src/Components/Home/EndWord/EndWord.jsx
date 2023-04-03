@@ -3,7 +3,8 @@ import CustomButton from "@/Components/CustomButton/CustomButton";
 import { Space } from "antd";
 import React from "react";
 
-const EndWord = () => {
+const EndWord = (props) => {
+  const { title, subtitle } = props;
   return (
     <Space
       direction="vertical"
@@ -14,13 +15,7 @@ const EndWord = () => {
         marginBottom: 96,
       }}
     >
-      <BigTitle
-        title="Srivani Global School is committed to providing our students with the
-      skills, knowledge, and opportunities they need to succeed in the future."
-        colorIndex={[0, 1, 2]}
-        subTitle="With a focus on innovation, creativity, and critical thinking, our
-      school is helping to shape the next generation of leaders and innovators"
-      />
+      <BigTitle title={title} colorIndex={[0, 1, 2]} subTitle={subtitle} />
       <CustomButton text={"Contact us to join your child"} size="lg" />
     </Space>
   );

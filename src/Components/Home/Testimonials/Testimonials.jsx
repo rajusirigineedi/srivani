@@ -1,10 +1,18 @@
 import BigTitle from "@/Components/BigTitle/BigTitle";
 import CustomButton from "@/Components/CustomButton/CustomButton";
-import DirectorCard from "@/Components/DirectorCard/DirectorCard";
 import { Col, Row, Space } from "antd";
 import React from "react";
+import CommentCard from "../../CommentCard/CommentCard";
 
 const Testimonials = (props) => {
+  const { title, subtitle, comments } = props;
+  const _comments = comments.map((imageEntry) => {
+    return {
+      title: imageEntry.title,
+      subtitle: imageEntry.subtitle,
+      comment: imageEntry.comment,
+    };
+  });
   return (
     <Space
       align="center"
@@ -12,51 +20,22 @@ const Testimonials = (props) => {
       style={{ width: "100%", marginTop: 96 }}
       size={72}
     >
-      <BigTitle
-        title="What parents and students say about us."
-        subTitle="What parents and students say about us. here should be another text vro"
-        colorIndex={[1, 3]}
-      />
+      <BigTitle title={title} subTitle={subtitle} colorIndex={[1, 3]} />
       <Row gutter={[24, 24]} justify="center" style={{ padding: "0 20%" }}>
-        <Col>
-          <DirectorCard
-            title="Raviteja Sunkara"
-            rolee="10th Class,Section A"
-            description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
-          />
-        </Col>
-        <Col>
-          <DirectorCard
-            title="Raviteja Sunkara"
-            rolee="10th Class,Section A"
-            description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
-          />
-        </Col>
-        <Col>
-          <DirectorCard
-            title="Raviteja Sunkara"
-            rolee="10th Class,Section A"
-            description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
-          />
-        </Col>
-        <Col>
-          <DirectorCard
-            title="Raviteja Sunkara"
-            rolee="10th Class,Section A"
-            description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
-          />
-        </Col>
-        <Col>
-          <DirectorCard
-            title="Raviteja Sunkara"
-            rolee="10th Class,Section A"
-            description="IAm very lucky to join in srivani global schools because of srivani global schools i got AIR-7 in IIT Advanced.Thank you srivani schools."
-          />
-        </Col>
+        {_comments.map((comment, index) => (
+          <Col key={index}>
+            <CommentCard
+              mainTitle={comment.title}
+              subTitle={comment.subtitle}
+              description={comment.comment}
+            />
+          </Col>
+        ))}
+
         <Col
           style={{
             alignSelf: "center",
-            width: "32.5rem",
+            width: "34.5rem",
           }}
         >
           <Space

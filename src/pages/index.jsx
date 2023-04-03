@@ -4,51 +4,98 @@ import EventSection from "@/Components/Home/EventSection/EventSection";
 import FeatureSection from "@/Components/Home/FeatureSection/FeatureSection";
 import Landing from "@/Components/Home/Landing/Landing";
 import Testimonials from "@/Components/Home/Testimonials/Testimonials";
+import { GetLandingPageDetails } from "@/Services/graphql/landing";
 import { useQuery, gql } from "@apollo/client";
 import { Space } from "antd";
 import React from "react";
+import client from "../../apollo-client";
 
-const QUERY = gql`
-  # Write your query or mutation here
-  query AllFolders {
-    imageFolders {
-      data {
-        attributes {
-          folder
-          title
-          images {
-            data {
-              attributes {
-                title
-                info
-                image {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 const Home = (props) => {
-  const { data, loading, error } = useQuery(QUERY);
-  console.log(data, loading, error);
+  const { MainHeading, MainSubtitle, CarouselImages, NotificationString } =
+    props.landingPageData;
+  const {
+    ContentImageLilst,
+    subtitle: AcheivementsSubTitle,
+    title: AcheivementsTitle,
+  } = props.acheivementsData;
+
+  const {
+    title: DirectorsTitle,
+    subtitle: DirectorsSubtitle,
+    DirectorCard: DirectorCardData,
+  } = props.directorWordData;
+
+  const {
+    title: SpecialTitle,
+    subtitle: SpecialSubTitle,
+    FullImage,
+    SpecialCard,
+  } = props.specialData;
+
+  const { title: endTitle, subtitle: endSubtitle } = props.endWordData;
+
+  const {
+    title: commentTitle,
+    subtitle: commentSubtitle,
+    CommentCard,
+  } = props.commentsData;
+
+  const imageList = CarouselImages.data.map(
+    (imageEntry) => imageEntry.attributes.image.data.attributes.url
+  );
+
   return (
     <Space direction="vertical">
-      <Landing />
-      <EventSection />
-      <DirectorWords />
-      <FeatureSection />
-      <Testimonials />
-      <EndWord />
+      <Landing
+        MainHeading={MainHeading}
+        MainSubtitle={MainSubtitle}
+        CarouselImages={imageList}
+        NotificationString={NotificationString}
+      />
+      <EventSection
+        title={AcheivementsTitle}
+        subtitle={AcheivementsSubTitle}
+        imageList={ContentImageLilst}
+      />
+      <DirectorWords
+        title={DirectorsTitle}
+        subtitle={DirectorsSubtitle}
+        directorCards={DirectorCardData}
+      />
+      <FeatureSection
+        title={SpecialTitle}
+        subtitle={SpecialSubTitle}
+        fullImage={FullImage}
+        specialCard={SpecialCard}
+      />
+      <Testimonials
+        title={commentTitle}
+        subtitle={commentSubtitle}
+        comments={CommentCard}
+      />
+      <EndWord title={endTitle} subtitle={endSubtitle} />
     </Space>
   );
 };
+
+export async function getServerSideProps(context) {
+  const { data, error } = await client.query({ query: GetLandingPageDetails });
+  if (error)
+    return {
+      props: {
+        error: "Backend might be down",
+      },
+    };
+  return {
+    props: {
+      landingPageData: data.landingPage.data.attributes,
+      acheivementsData: data.acheivementSection.data.attributes,
+      directorWordData: data.directorWord.data.attributes,
+      specialData: data.specialScreen.data.attributes,
+      endWordData: data.endWord.data.attributes,
+      commentsData: data.commentSection.data.attributes,
+    },
+  };
+}
 
 export default Home;

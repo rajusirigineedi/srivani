@@ -6,6 +6,14 @@ import React from "react";
 
 const { Text } = Typography;
 const FeatureSection = (props) => {
+  const { title, subtitle, fullImage, specialCard } = props;
+  const _specialCards = specialCard.map((imageEntry) => {
+    return {
+      title: imageEntry.title,
+      subtitle: imageEntry.subtitle,
+      imageUrl: imageEntry.image.data.attributes.url,
+    };
+  });
   return (
     <Space
       style={{ width: "100%", marginTop: 96 }}
@@ -13,11 +21,7 @@ const FeatureSection = (props) => {
       direction="vertical"
       size={72}
     >
-      <BigTitle
-        title="What Srivani Global School provides and Why we are special.."
-        subTitle="The future belongs to our students, and we are dedicated to helping them realize their dreams and achieve their goals."
-        colorIndex={[1, 2, 3]}
-      />
+      <BigTitle title={title} subTitle={subtitle} colorIndex={[1, 2, 3]} />
       <div style={{ width: "50vw", height: "50vh" }}>
         <Image
           preview={false}
@@ -27,36 +31,21 @@ const FeatureSection = (props) => {
             objectFit: "cover",
           }}
           alt="imagepreview"
-          src={
-            "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          }
+          src={fullImage.data.attributes.url}
         />
       </div>
       <Row justify={"center"}>
-        <Col>
-          <Features
-            logo="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            text="Powered by LEAD.
-            Bringing power to education"
-            paragraph="Drag and drop elements - quickly and easily - from a comprehensive library of widgets and smart-shapes."
-          />
-        </Col>
-        <Col>
-          <Features
-            logo="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            text="Powered by LEAD.
-            Bringing power to education"
-            paragraph="Drag and drop elements - quickly and easily - from a comprehensive library of widgets and smart-shapes."
-          />
-        </Col>
-        <Col>
-          <Features
-            logo="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            text="Powered by LEAD.
-            Bringing power to education"
-            paragraph="Drag and drop elements - quickly and easily - from a comprehensive library of widgets and smart-shapes."
-          />
-        </Col>
+        {_specialCards.map((card, index) => {
+          return (
+            <Col key={index}>
+              <Features
+                logo={card.imageUrl}
+                text={card.title}
+                paragraph={card.subtitle}
+              />
+            </Col>
+          );
+        })}
       </Row>
       <CustomButton text="View testimonials" />
       <Text style={{ color: "var(--fontcolor-secondary)" }}>

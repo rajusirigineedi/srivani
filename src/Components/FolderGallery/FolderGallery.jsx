@@ -106,7 +106,6 @@ const GalleryThumbnailImage = ({ image, folder }) => {
       <div
         className={classes["thumbnail-overlay"]}
         onClick={() => {
-          console.log("clickding ");
           router.push({
             pathname: "/gallery",
             query: {
