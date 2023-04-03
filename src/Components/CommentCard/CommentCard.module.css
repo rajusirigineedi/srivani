@@ -1,7 +1,15 @@
 .space {
-    border: 1px solid var(--primary-gray);
+    /* border: 1px solid var(--fontcolor-secondary); */
 }
 
 .mainTitle {
     font-weight: bold;
+    color: var(--primary-color);
+}
+.subTitle{
+    color: var(--fontcolor-secondary);
+}
+.para{
+    color: var(--fontcolor-secondary);
+    font-weight: 500;
 }
