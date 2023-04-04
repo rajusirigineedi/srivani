@@ -117,3 +117,117 @@ export const GetLandingPageDetails = gql`
     }
   }
 `;
+
+export const GetCampusPageDetails = gql`
+  query {
+    campusPage {
+      data {
+        attributes {
+          title
+          subtitle
+          campusImage {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          description
+        }
+      }
+    }
+    directorWord {
+      data {
+        attributes {
+          title
+          subtitle
+          DirectorCard {
+            title
+            subtitle
+            name
+            degree
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    endWord {
+      data {
+        attributes {
+          title
+          subtitle
+        }
+      }
+    }
+  }
+`;
+
+export const GetAboutUsPageDetails = gql`
+  query {
+    aboutUs {
+      data {
+        attributes {
+          title
+          subtitle
+          ytlink
+          fblink
+          videoUrl
+          description
+        }
+      }
+    }
+    specialScreen {
+      data {
+        attributes {
+          title
+          subtitle
+          FullImage {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          SpecialCard {
+            title
+            subtitle
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    commentSection {
+      data {
+        attributes {
+          title
+          subtitle
+          CommentCard {
+            title
+            subtitle
+            comment
+          }
+        }
+      }
+    }
+    endWord {
+      data {
+        attributes {
+          title
+          subtitle
+        }
+      }
+    }
+  }
+`;

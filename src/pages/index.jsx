@@ -80,7 +80,6 @@ const Home = (props) => {
 
 export async function getServerSideProps(context) {
   const { data, error } = await client.query({ query: GetLandingPageDetails });
-  console.log("the reult is ", data, error);
   if (error)
     return {
       props: {
