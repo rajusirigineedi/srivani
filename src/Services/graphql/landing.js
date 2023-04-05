@@ -231,3 +231,148 @@ export const GetAboutUsPageDetails = gql`
     }
   }
 `;
+
+export const EventPageDetails = gql`
+  query {
+    eventsPage {
+      data {
+        attributes {
+          title
+          subtitle
+        }
+      }
+    }
+    imageFolders {
+      data {
+        attributes {
+          folder
+          images(pagination: { limit: 1 }) {
+            data {
+              attributes {
+                image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    endWord {
+      data {
+        attributes {
+          title
+          subtitle
+        }
+      }
+    }
+  }
+`;
+
+export const GetImagesForFolder = gql`
+  query ($folder: String, $page: Int) {
+    imageFolders(filters: { folder: { eq: $folder } }) {
+      data {
+        attributes {
+          folder
+          images(pagination: { pageSize: 7, page: $page }) {
+            data {
+              attributes {
+                image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                title
+                info
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const AcheivementPageDetails = gql`
+  query {
+    aceivementsPage {
+      data {
+        attributes {
+          title
+          subtitle
+          CarouselImages {
+            data {
+              attributes {
+                image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    endWord {
+      data {
+        attributes {
+          title
+          subtitle
+        }
+      }
+    }
+  }
+`;
+
+export const GetEndWords = gql`
+  query {
+    endWord {
+      data {
+        attributes {
+          title
+          subtitle
+        }
+      }
+    }
+  }
+`;
+
+export const ContactPageDetails = gql`
+  query {
+    contactPage {
+      data {
+        attributes {
+          title
+          subtitle
+          locationTitle
+          locationSubtitle
+          locationImage {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+    endWord {
+      data {
+        attributes {
+          title
+          subtitle
+        }
+      }
+    }
+  }
+`;

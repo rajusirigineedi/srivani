@@ -6,14 +6,10 @@ import CustomButton from "../CustomButton/CustomButton";
 import classes from "./FolderGallery.module.css";
 
 const { Text } = Typography;
-const FolderGallery = () => {
-  const { getFolderThumbnails } = useFolderImageshook();
-  const _folderThumbnails = useMemo(
-    () => getFolderThumbnails(),
-    [getFolderThumbnails]
-  );
+const FolderGallery = (props) => {
+  const { imageFolders } = props;
   const [folderImagesWithTitles, setFolderImagesWithTitles] =
-    useState(_folderThumbnails);
+    useState(imageFolders);
   const [folderState, setFolderState] = useState();
   const [pageNum, setPageNum] = useState(0);
   const folderLimit = 3;
@@ -31,8 +27,8 @@ const FolderGallery = () => {
   }, [pageNum, folderImagesWithTitles]);
 
   useEffect(() => {
-    setFolderImagesWithTitles(_folderThumbnails);
-  }, [_folderThumbnails]);
+    setFolderImagesWithTitles(imageFolders);
+  }, [imageFolders]);
 
   const prevClickHandler = () => {
     if (pageNum === 0) return;
