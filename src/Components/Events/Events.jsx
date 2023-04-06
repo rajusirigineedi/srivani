@@ -4,6 +4,15 @@ import BigTitle from "../BigTitle/BigTitle";
 import FolderGallery from "../FolderGallery/FolderGallery";
 
 const Events = (props) => {
+  const { imageFolders, bigTitle } = props;
+  const _imageFolders = imageFolders.map((folder) => {
+    return {
+      folder: folder.attributes.folder,
+      image:
+        folder.attributes.images.data?.[0]?.attributes.image.data.attributes
+          .url,
+    };
+  });
   return (
     <Space
       direction="vertical"
@@ -11,12 +20,8 @@ const Events = (props) => {
       align="center"
       style={{ width: "100%", marginTop: 72 }}
     >
-      <BigTitle
-        title="Events and Celebrations"
-        colorIndex={[2]}
-        subTitle="Jio cinema provides teh best viwing experience ever tahtn any other app combined."
-      />
-      <FolderGallery />
+      <BigTitle bigTitle={bigTitle} />
+      <FolderGallery imageFolders={_imageFolders} />
     </Space>
   );
 };

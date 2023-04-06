@@ -1,3 +1,5 @@
+import { GetImagesForFolder } from "@/Services/graphql/landing";
+import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 
 const { Space, Row, Col, Image, Typography } = require("antd");
@@ -6,32 +8,42 @@ const { default: CustomButton } = require("../CustomButton/CustomButton");
 
 const { Text } = Typography;
 
-export const MiniGallery = ({ imageList, title, subTitle }) => {
+export const MiniGallery = ({ folder, bigTitle }) => {
+  const { data, loading, error, refetch } = useQuery(GetImagesForFolder, {
+    variables: {
+      folder,
+      page: 1,
+    },
+  });
+  const pageSize = 7;
+  const galleryImages =
+    data?.imageFolders?.data?.[0]?.attributes?.images?.data?.map((image) => {
+      return {
+        image: image.attributes.image.data.attributes.url,
+        title: image.attributes.title,
+        subtitle: image.attributes.info,
+      };
+    });
+
+  // console.log("the data is ", galleryImages, loading, error, folder);
+
   const [activeImage, setActiveImage] = useState();
-  const [pageNum, setPageNum] = useState(0);
-  const [galleryImages, setGalleryImages] = useState();
-  const imagelimit = 7;
+  const [pageNum, setPageNum] = useState(1);
 
   useEffect(() => {
-    const _imageList = imageList?.slice(
-      pageNum * imagelimit,
-      pageNum * imagelimit + imagelimit
-    );
-    if (_imageList?.length < imagelimit) {
-      setGalleryImages(imageList?.slice(-imagelimit));
-      return;
-    }
-    setGalleryImages(_imageList);
-  }, [pageNum, imageList]);
+    refetch({
+      folder,
+      page: pageNum,
+    });
+  }, [pageNum]);
 
   const prevClickHandler = () => {
-    if (pageNum === 0) return;
+    if (pageNum === 1) return;
     setPageNum((prev) => prev - 1);
   };
 
   const nextClickHandler = () => {
-    if (pageNum + 1 > imageList?.length / imagelimit) return;
-    setPageNum((prev) => prev + 1);
+    if (galleryImages.length === pageSize) setPageNum((prev) => prev + 1);
   };
 
   const onImageClick = (obj) => {
@@ -49,9 +61,10 @@ export const MiniGallery = ({ imageList, title, subTitle }) => {
       size={24}
     >
       <BigTitle
-        title={title}
-        subTitle={activeImage?.text ?? subTitle}
-        colorIndex={[1]}
+        bigTitle={{
+          ...bigTitle,
+          subtitle: activeImage?.text ?? bigTitle.subtitle,
+        }}
       />
       {activeImage ? (
         <Space

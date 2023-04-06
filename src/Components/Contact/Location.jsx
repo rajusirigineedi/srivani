@@ -4,6 +4,8 @@ import BigTitle from "../BigTitle/BigTitle";
 import CustomButton from "../CustomButton/CustomButton";
 
 const Location = (props) => {
+  const { bigTitle, image } = props;
+  const _image = image.data.attributes.url;
   return (
     <Row align="center">
       <Col
@@ -25,12 +27,7 @@ const Location = (props) => {
             justifyContent: "center",
           }}
         >
-          <BigTitle
-            title="Location"
-            colorIndex={[0]}
-            subTitle="We are on the only way this can show me the map
-            on the only way that"
-          />
+          <BigTitle bigTitle={bigTitle} />
           <CustomButton text="View on GMaps" />
         </Space>
       </Col>
@@ -42,9 +39,7 @@ const Location = (props) => {
           }}
           width={"100%"}
           height={"100%"}
-          src={
-            "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          }
+          src={_image}
           alt={"image"}
         />
       </Col>
@@ -53,3 +48,11 @@ const Location = (props) => {
 };
 
 export default Location;
+
+// stackoverflow soln to reset the connections
+
+// SELECT pg_cancel_backend(pid)     -- (SIGINT)
+//     -- pg_terminate_backend(pid)  -- the less patient alternative (SIGTERM)
+// FROM   pg_stat_activity
+// WHERE  usename = 'user_name'
+// AND    pid <> pg_backend_pid();

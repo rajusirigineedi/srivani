@@ -1,5 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
-
+/**
+ *
+ * Not in use anymore.
+ *
+ */
 const useFolderImageshook = () => {
   const [folders, setFolders] = useState();
 

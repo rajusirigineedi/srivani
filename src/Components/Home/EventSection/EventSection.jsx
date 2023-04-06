@@ -4,26 +4,28 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Radio } from "antd";
 import CustomButton from "@/Components/CustomButton/CustomButton";
 import Image from "next/image";
-import useFolderImageshook from "@/hooks/useFolderImageshook";
 import { useRouter } from "next/router";
 
 const { Text } = Typography;
 
 const options = ["Culturals", "Acheivements", "Events", "Campus"];
 const EventSection = (props) => {
+  const { bigTitle, imageList } = props;
+  const eventsImageList = imageList.data.map((imageEntry) => {
+    return {
+      title: imageEntry.attributes.title,
+      info: imageEntry.attributes.info,
+      imageUrl: imageEntry.attributes.image.data.attributes.url,
+    };
+  });
   const [currTab, setCurrTab] = useState(options[0]);
   const [currImage, setCurrImage] = useState();
-  const { getFolderImages } = useFolderImageshook();
   const router = useRouter();
-  const homePageEventImages = useMemo(
-    () => getFolderImages("HomePage Images2"),
-    [getFolderImages]
-  );
 
   useEffect(() => {
     const index = options.findIndex((item) => item === currTab);
-    if (index !== -1) setCurrImage(homePageEventImages?.[index]);
-  }, [currTab, homePageEventImages]);
+    if (index !== -1) setCurrImage(eventsImageList?.[index]);
+  }, [currTab]);
 
   return (
     <Space
@@ -32,15 +34,7 @@ const EventSection = (props) => {
       style={{ width: "100%", marginTop: 96 }}
       size={48}
     >
-      <BigTitle
-        title={
-          "School that involves in various activities along with the studies to succeed in life"
-        }
-        colorIndex={[0, 5]}
-        subTitle={
-          "School that involves in various activities along with the studies to succeed"
-        }
-      />
+      <BigTitle bigTitle={bigTitle} />
       <Radio.Group
         options={options}
         onChange={({ target: { value } }) => {
@@ -111,6 +105,7 @@ const EventSection = (props) => {
           style={{
             height: "50vh",
             paddingLeft: 12,
+            width: "100%",
             borderRadius: "0.8rem",
           }}
         >
@@ -122,7 +117,7 @@ const EventSection = (props) => {
             height={"100%"}
             objectFit={"cover"}
             layout={"fill"}
-            src={currImage?.image}
+            src={currImage?.imageUrl}
             alt={"image"}
           />
         </Col>

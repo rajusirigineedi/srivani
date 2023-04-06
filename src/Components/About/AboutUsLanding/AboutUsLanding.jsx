@@ -2,10 +2,13 @@ import BigTitle from "@/Components/BigTitle/BigTitle";
 import CustomButton from "@/Components/CustomButton/CustomButton";
 import { Space, Typography } from "antd";
 import React from "react";
-import ReactPlayer from "react-player/lazy";
+import dynamic from "next/dynamic";
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 const { Text } = Typography;
 const AboutUsLanding = (props) => {
+  const isSSR = typeof window === "undefined";
+  const { bigTitle, ytlink, fblink, videoUrl, description } = props;
   return (
     <Space
       direction="vertical"
@@ -13,23 +16,16 @@ const AboutUsLanding = (props) => {
       style={{ width: "100%", marginTop: 96 }}
       size={48}
     >
-      <BigTitle
-        title="SRIVANI GLOBAL SCHOOL"
-        colorIndex={[0]}
-        textSize="lg"
-        subTitle="The future belongs to our students, and we are dedicated to helping them realize their dreams and achieve their goals."
-      />
+      <BigTitle bigTitle={bigTitle} textSize="lg" />
       <CustomButton text="See Campus" />
+      {/* This players casues hydration issues. Ignore it for now. */}
       <ReactPlayer
         width={"75vw"}
         height={"75vh"}
         controls={true}
-        url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+        url={videoUrl}
       />
-      <Text style={{ color: "var(--fontcolor-secondary)" }}>
-        The future belongs to our students, and we are dedicated to helping them
-        realize their dreams and achieve their goals.
-      </Text>
+      <Text style={{ color: "var(--fontcolor-secondary)" }}>{description}</Text>
       <Space width={"50%"} direction="vertical">
         <CustomButton text="Follow us on Facebook" />
         <CustomButton text="Subscribe to our Youtube channel" />
