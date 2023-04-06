@@ -4,7 +4,7 @@ import BigTitle from "../BigTitle/BigTitle";
 import FolderGallery from "../FolderGallery/FolderGallery";
 
 const Events = (props) => {
-  const { imageFolders, title, subtitle } = props;
+  const { imageFolders, bigTitle } = props;
   const _imageFolders = imageFolders.map((folder) => {
     return {
       folder: folder.attributes.folder,
@@ -20,7 +20,7 @@ const Events = (props) => {
       align="center"
       style={{ width: "100%", marginTop: 72 }}
     >
-      <BigTitle title={title} colorIndex={[2]} subTitle={subtitle} />
+      <BigTitle bigTitle={bigTitle} />
       <FolderGallery imageFolders={_imageFolders} />
     </Space>
   );

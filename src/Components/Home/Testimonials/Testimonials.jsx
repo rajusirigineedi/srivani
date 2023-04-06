@@ -5,7 +5,7 @@ import React from "react";
 import CommentCard from "../../CommentCard/CommentCard";
 
 const Testimonials = (props) => {
-  const { title, subtitle, comments } = props;
+  const { bigTitle, comments } = props;
   const _comments = comments.map((imageEntry) => {
     return {
       title: imageEntry.title,
@@ -20,7 +20,7 @@ const Testimonials = (props) => {
       style={{ width: "100%", marginTop: 96 }}
       size={72}
     >
-      <BigTitle title={title} subTitle={subtitle} colorIndex={[1, 3]} />
+      <BigTitle bigTitle={bigTitle} />
       <Row gutter={[24, 24]} justify="center" style={{ padding: "0 20%" }}>
         {_comments.map((comment, index) => (
           <Col key={index}>

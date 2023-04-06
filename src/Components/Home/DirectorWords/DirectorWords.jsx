@@ -4,7 +4,8 @@ import { Col, Row, Space } from "antd";
 import React from "react";
 
 const DirectorWords = (props) => {
-  const { title, subtitle, directorCards } = props;
+  const { bigTitle, directorCards } = props;
+  console.log("hwote ", bigTitle);
   const directorsList = directorCards.map((imageEntry) => {
     return {
       title: imageEntry.title,
@@ -20,7 +21,7 @@ const DirectorWords = (props) => {
       align="center"
       style={{ width: "100%", marginTop: 96 }}
     >
-      <BigTitle title={title} subTitle={subtitle} colorIndex={[4]} />
+      <BigTitle bigTitle={bigTitle} />
       <Row gutter={[72, 72]} justify="center" style={{ marginTop: 72 }}>
         {directorsList.map((director, index) => (
           <Col key={index}>

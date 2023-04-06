@@ -6,21 +6,15 @@ import Contact from "./Contact";
 import Location from "./Location";
 
 const ContactSection = (props) => {
-  const { title, subtitle, locationTitle, locationSubtitle, locationImage } =
-    props;
+  const { contactTitle, locationTitle, locationImage } = props;
   return (
     <Space
       direction="vertical"
       style={{ width: "100%", marginTop: 72 }}
       size={48}
     >
-      <Location
-        title={locationTitle}
-        subtitle={locationSubtitle}
-        image={locationImage}
-      />
-
-      <BigTitle title={title} subTitle={subtitle} colorIndex={[1]} />
+      <Location bigTitle={locationTitle} image={locationImage} />
+      <BigTitle bigTitle={contactTitle} />
       <Contact />
       <Space
         style={{

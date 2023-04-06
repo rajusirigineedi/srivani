@@ -4,7 +4,7 @@ import { Space } from "antd";
 import React from "react";
 
 const EndWord = (props) => {
-  const { title, subtitle } = props;
+  const { bigTitle } = props;
   return (
     <Space
       direction="vertical"
@@ -15,7 +15,7 @@ const EndWord = (props) => {
         marginBottom: 96,
       }}
     >
-      <BigTitle title={title} colorIndex={[0, 1, 2]} subTitle={subtitle} />
+      <BigTitle bigTitle={bigTitle} />
       <CustomButton text={"Contact us to join your child"} size="lg" />
     </Space>
   );

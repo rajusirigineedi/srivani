@@ -10,7 +10,7 @@ const { Text } = Typography;
 
 const options = ["Culturals", "Acheivements", "Events", "Campus"];
 const EventSection = (props) => {
-  const { title, subtitle, imageList } = props;
+  const { bigTitle, imageList } = props;
   const eventsImageList = imageList.data.map((imageEntry) => {
     return {
       title: imageEntry.attributes.title,
@@ -34,7 +34,7 @@ const EventSection = (props) => {
       style={{ width: "100%", marginTop: 96 }}
       size={48}
     >
-      <BigTitle title={title} colorIndex={[0, 5]} subTitle={subtitle} />
+      <BigTitle bigTitle={bigTitle} />
       <Radio.Group
         options={options}
         onChange={({ target: { value } }) => {

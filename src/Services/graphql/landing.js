@@ -7,6 +7,7 @@ export const GetLandingPageDetails = gql`
         attributes {
           MainSubtitle
           MainHeading
+          MainHeading2
           NotificationString
           CarouselImages {
             data {
@@ -27,8 +28,13 @@ export const GetLandingPageDetails = gql`
     acheivementSection {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           ContentImageLilst {
             data {
               attributes {
@@ -50,8 +56,13 @@ export const GetLandingPageDetails = gql`
     directorWord {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           DirectorCard {
             title
             subtitle
@@ -71,8 +82,13 @@ export const GetLandingPageDetails = gql`
     specialScreen {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           FullImage {
             data {
               attributes {
@@ -97,8 +113,13 @@ export const GetLandingPageDetails = gql`
     commentSection {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           CommentCard {
             title
             subtitle
@@ -110,8 +131,13 @@ export const GetLandingPageDetails = gql`
     endWord {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
         }
       }
     }
@@ -123,8 +149,13 @@ export const GetCampusPageDetails = gql`
     campusPage {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           campusImage {
             data {
               attributes {
@@ -139,8 +170,13 @@ export const GetCampusPageDetails = gql`
     directorWord {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           DirectorCard {
             title
             subtitle
@@ -160,8 +196,13 @@ export const GetCampusPageDetails = gql`
     endWord {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
         }
       }
     }
@@ -173,8 +214,13 @@ export const GetAboutUsPageDetails = gql`
     aboutUs {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           ytlink
           fblink
           videoUrl
@@ -185,8 +231,13 @@ export const GetAboutUsPageDetails = gql`
     specialScreen {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           FullImage {
             data {
               attributes {
@@ -211,8 +262,13 @@ export const GetAboutUsPageDetails = gql`
     commentSection {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           CommentCard {
             title
             subtitle
@@ -224,8 +280,13 @@ export const GetAboutUsPageDetails = gql`
     endWord {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
         }
       }
     }
@@ -237,8 +298,13 @@ export const EventPageDetails = gql`
     eventsPage {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
         }
       }
     }
@@ -265,8 +331,13 @@ export const EventPageDetails = gql`
     endWord {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
         }
       }
     }
@@ -305,8 +376,13 @@ export const AcheivementPageDetails = gql`
     aceivementsPage {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           CarouselImages {
             data {
               attributes {
@@ -326,8 +402,13 @@ export const AcheivementPageDetails = gql`
     endWord {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
         }
       }
     }
@@ -339,8 +420,13 @@ export const GetEndWords = gql`
     endWord {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
         }
       }
     }
@@ -352,10 +438,20 @@ export const ContactPageDetails = gql`
     contactPage {
       data {
         attributes {
-          title
-          subtitle
-          locationTitle
-          locationSubtitle
+          ContactTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
+          LocationTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
           locationImage {
             data {
               attributes {
@@ -369,8 +465,13 @@ export const ContactPageDetails = gql`
     endWord {
       data {
         attributes {
-          title
-          subtitle
+          BigTitle {
+            title
+            subtitle
+            colorIndex {
+              index
+            }
+          }
         }
       }
     }

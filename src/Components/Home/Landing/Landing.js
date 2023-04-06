@@ -1,5 +1,4 @@
 import CustomButton from "@/Components/CustomButton/CustomButton";
-import useFolderImageshook from "@/hooks/useFolderImageshook";
 import { Carousel, Col, Image, Row, Space, Typography } from "antd";
 import React, { useEffect, useMemo, useState } from "react";
 import classes from "./Landing.module.css";
@@ -14,8 +13,13 @@ const contentStyle = {
 
 const { Text } = Typography;
 const Landing = (props) => {
-  const { MainHeading, MainSubtitle, CarouselImages, NotificationString } =
-    props;
+  const {
+    MainHeading,
+    MainHeading2,
+    MainSubtitle,
+    CarouselImages,
+    NotificationString,
+  } = props;
 
   return (
     <div className={classes["home-landing"]}>
@@ -36,7 +40,7 @@ const Landing = (props) => {
                 {MainHeading}
               </Text>
               <Text className={classes["landing-text--primary"]}>
-                Enlighting the future 🚀
+                {MainHeading2}
               </Text>
             </Space>
             <Text className={classes["landing-text--secondary"]}>

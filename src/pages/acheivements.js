@@ -6,13 +6,13 @@ import { Space } from "antd";
 import React from "react";
 import client from "../../apollo-client";
 const Acheivements = (props) => {
-  const { title, subtitle, CarouselImages } = props.aceivementsPageData;
-  const { title: endTitle, subtitle: endSubtitle } = props.endWordData;
+  const { BigTitle, CarouselImages } = props.aceivementsPageData;
+  const { BigTitle: endTitle } = props.endWordData;
 
   return (
     <Space direction="vertical">
-      <Acheivments title={title} subtitle={subtitle} images={CarouselImages} />
-      <EndWord title={endTitle} subtitle={endSubtitle} />
+      <Acheivments bigTitle={BigTitle} images={CarouselImages} />
+      <EndWord bigTitle={endTitle} />
     </Space>
   );
 };

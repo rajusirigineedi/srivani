@@ -8,7 +8,7 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 const { Text } = Typography;
 const AboutUsLanding = (props) => {
   const isSSR = typeof window === "undefined";
-  const { title, subtitle, ytlink, fblink, videoUrl, description } = props;
+  const { bigTitle, ytlink, fblink, videoUrl, description } = props;
   return (
     <Space
       direction="vertical"
@@ -16,12 +16,7 @@ const AboutUsLanding = (props) => {
       style={{ width: "100%", marginTop: 96 }}
       size={48}
     >
-      <BigTitle
-        title={title}
-        colorIndex={[0]}
-        textSize="lg"
-        subTitle={subtitle}
-      />
+      <BigTitle bigTitle={bigTitle} textSize="lg" />
       <CustomButton text="See Campus" />
       {/* This players casues hydration issues. Ignore it for now. */}
       <ReactPlayer

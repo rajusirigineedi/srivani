@@ -6,19 +6,16 @@ import React from "react";
 import client from "../../apollo-client";
 
 const contact = (props) => {
-  const { title: endTitle, subtitle: endSubtitle } = props.endWordData;
-  const { title, subtitle, locationTitle, locationSubtitle, locationImage } =
-    props.contactData;
+  const { BigTitle: endTitle } = props.endWordData;
+  const { ContactTitle, LocationTitle, locationImage } = props.contactData;
   return (
     <Space direction="vertical">
       <ContactSection
-        title={title}
-        subtitle={subtitle}
-        locationTitle={locationTitle}
-        locationSubtitle={locationSubtitle}
+        contactTitle={ContactTitle}
+        locationTitle={LocationTitle}
         locationImage={locationImage}
       />
-      <EndWord title={endTitle} subtitle={endSubtitle} />
+      <EndWord bigTitle={endTitle} />
     </Space>
   );
 };

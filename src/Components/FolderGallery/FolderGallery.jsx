@@ -1,4 +1,3 @@
-import useFolderImageshook from "@/hooks/useFolderImageshook";
 import { Col, Image, Row, Space, Typography } from "antd";
 import { useRouter } from "next/router";
 import React, { useEffect, useMemo, useState } from "react";

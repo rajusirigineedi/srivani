@@ -6,7 +6,7 @@ import CustomButton from "../CustomButton/CustomButton";
 
 const { Text } = Typography;
 const CampusComponent = (props) => {
-  const { title, subtitle, image, description } = props;
+  const { bigTitle, image, description } = props;
   const router = useRouter();
   return (
     <Space
@@ -15,7 +15,7 @@ const CampusComponent = (props) => {
       size={48}
       style={{ marginTop: 72 }}
     >
-      <BigTitle title={title} colorIndex={[0, 1, 2]} subTitle={subtitle} />
+      <BigTitle bigTitle={bigTitle} />
       <div style={{ width: "100vw", height: "60vh" }}>
         <Image
           preview={false}

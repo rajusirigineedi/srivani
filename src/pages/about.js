@@ -7,53 +7,35 @@ import { Space } from "antd";
 import React from "react";
 import client from "../../apollo-client";
 const About = (props) => {
-  const {
-    title: SpecialTitle,
-    subtitle: SpecialSubTitle,
-    FullImage,
-    SpecialCard,
-  } = props.specialData;
+  const { BigTitle: SpecialTitle, FullImage, SpecialCard } = props.specialData;
 
   const {
-    title: aboutTitle,
-    subtitle: aboutSubtitle,
+    BigTitle: aboutTitle,
     videoUrl,
     ytlink,
     fblink,
     description: aboutDescription,
   } = props.aboutUsData;
 
-  console.log(props.aboutUsData);
+  const { BigTitle: endTitle } = props.endWordData;
 
-  const { title: endTitle, subtitle: endSubtitle } = props.endWordData;
-
-  const {
-    title: commentTitle,
-    subtitle: commentSubtitle,
-    CommentCard,
-  } = props.commentsData;
+  const { BigTitle: commentTitle, CommentCard } = props.commentsData;
   return (
     <Space direction="vertical">
       <AboutUsLanding
-        title={aboutTitle}
-        subtitle={aboutSubtitle}
+        bigTitle={aboutTitle}
         ytlink={ytlink}
         fblink={fblink}
         videoUrl={videoUrl}
         description={aboutDescription}
       />
       <FeatureSection
-        title={SpecialTitle}
-        subtitle={SpecialSubTitle}
+        bigTitle={SpecialTitle}
         fullImage={FullImage}
         specialCard={SpecialCard}
       />
-      <Testimonials
-        title={commentTitle}
-        subtitle={commentSubtitle}
-        comments={CommentCard}
-      />
-      <EndWord title={endTitle} subtitle={endSubtitle} />
+      <Testimonials bigTitle={commentTitle} comments={CommentCard} />
+      <EndWord bigTitle={endTitle} />
     </Space>
   );
 };

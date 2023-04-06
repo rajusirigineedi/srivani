@@ -1,4 +1,3 @@
-import useFolderImageshook from "@/hooks/useFolderImageshook";
 import { Carousel, Col, Image, Row, Space, Typography } from "antd";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import BigTitle from "../BigTitle/BigTitle";
@@ -8,7 +7,7 @@ import classes from "./Acheivements.module.css";
 
 const { Text } = Typography;
 const Acheivments = (props) => {
-  const { title, subtitle, images } = props;
+  const { bigTitle, images } = props;
   const _carouselImageList = images?.data?.map(
     (imageEntry) => imageEntry.attributes.image.data.attributes.url
   );
@@ -32,11 +31,7 @@ const Acheivments = (props) => {
         ))}
       </Carousel>
 
-      <MiniGallery
-        folder={"Student Acheivements"}
-        title={title}
-        subTitle={subtitle}
-      />
+      <MiniGallery folder={"Student Acheivements"} bigTitle={bigTitle} />
     </div>
   );
 };

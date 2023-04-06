@@ -8,7 +8,7 @@ const { default: CustomButton } = require("../CustomButton/CustomButton");
 
 const { Text } = Typography;
 
-export const MiniGallery = ({ folder, title, subTitle }) => {
+export const MiniGallery = ({ folder, bigTitle }) => {
   const { data, loading, error, refetch } = useQuery(GetImagesForFolder, {
     variables: {
       folder,
@@ -61,9 +61,10 @@ export const MiniGallery = ({ folder, title, subTitle }) => {
       size={24}
     >
       <BigTitle
-        title={title}
-        subTitle={activeImage?.text ?? subTitle}
-        colorIndex={[1]}
+        bigTitle={{
+          ...bigTitle,
+          subtitle: activeImage?.text ?? bigTitle.subtitle,
+        }}
       />
       {activeImage ? (
         <Space

@@ -11,34 +11,24 @@ import React from "react";
 import client from "../../apollo-client";
 
 const Home = (props) => {
-  const { MainHeading, MainSubtitle, CarouselImages, NotificationString } =
-    props.landingPageData;
   const {
-    ContentImageLilst,
-    subtitle: AcheivementsSubTitle,
-    title: AcheivementsTitle,
-  } = props.acheivementsData;
+    MainHeading,
+    MainHeading2,
+    MainSubtitle,
+    CarouselImages,
+    NotificationString,
+  } = props.landingPageData;
+  const { ContentImageLilst, BigTitle: AcheivementsTitle } =
+    props.acheivementsData;
 
-  const {
-    title: DirectorsTitle,
-    subtitle: DirectorsSubtitle,
-    DirectorCard: DirectorCardData,
-  } = props.directorWordData;
+  const { BigTitle: DirectorsTitle, DirectorCard: DirectorCardData } =
+    props.directorWordData;
 
-  const {
-    title: SpecialTitle,
-    subtitle: SpecialSubTitle,
-    FullImage,
-    SpecialCard,
-  } = props.specialData;
+  const { BigTitle: SpecialTitle, FullImage, SpecialCard } = props.specialData;
 
-  const { title: endTitle, subtitle: endSubtitle } = props.endWordData;
+  const { BigTitle: endTitle } = props.endWordData;
 
-  const {
-    title: commentTitle,
-    subtitle: commentSubtitle,
-    CommentCard,
-  } = props.commentsData;
+  const { BigTitle: commentTitle, CommentCard } = props.commentsData;
 
   const imageList = CarouselImages.data.map(
     (imageEntry) => imageEntry.attributes.image.data.attributes.url
@@ -48,32 +38,26 @@ const Home = (props) => {
     <Space direction="vertical">
       <Landing
         MainHeading={MainHeading}
+        MainHeading2={MainHeading2}
         MainSubtitle={MainSubtitle}
         CarouselImages={imageList}
         NotificationString={NotificationString}
       />
       <EventSection
-        title={AcheivementsTitle}
-        subtitle={AcheivementsSubTitle}
+        bigTitle={AcheivementsTitle}
         imageList={ContentImageLilst}
       />
       <DirectorWords
-        title={DirectorsTitle}
-        subtitle={DirectorsSubtitle}
+        bigTitle={DirectorsTitle}
         directorCards={DirectorCardData}
       />
       <FeatureSection
-        title={SpecialTitle}
-        subtitle={SpecialSubTitle}
+        bigTitle={SpecialTitle}
         fullImage={FullImage}
         specialCard={SpecialCard}
       />
-      <Testimonials
-        title={commentTitle}
-        subtitle={commentSubtitle}
-        comments={CommentCard}
-      />
-      <EndWord title={endTitle} subtitle={endSubtitle} />
+      <Testimonials bigTitle={commentTitle} comments={CommentCard} />
+      <EndWord bigTitle={endTitle} />
     </Space>
   );
 };

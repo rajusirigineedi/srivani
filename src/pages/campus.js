@@ -9,16 +9,12 @@ import client from "../../apollo-client";
 import { GetCampusPageDetails } from "@/Services/graphql/landing";
 
 const Campus = (props) => {
-  const {
-    title: DirectorsTitle,
-    subtitle: DirectorsSubtitle,
-    DirectorCard: DirectorCardData,
-  } = props.directorWordData;
-  const { title: endTitle, subtitle: endSubtitle } = props.endWordData;
+  const { BigTitle: DirectorsTitle, DirectorCard: DirectorCardData } =
+    props.directorWordData;
+  const { BigTitle: endTitle } = props.endWordData;
 
   const {
-    title: campusTitle,
-    subtitle: campusSubtitle,
+    BigTitle: campusTitle,
     campusImage,
     description: campusDescription,
   } = props.campusData;
@@ -26,17 +22,15 @@ const Campus = (props) => {
   return (
     <Space direction="vertical">
       <CampusComponent
-        title={campusTitle}
-        subtitle={campusSubtitle}
+        bigTitle={campusTitle}
         image={campusImage}
         description={campusDescription}
       />
       <DirectorWords
-        title={DirectorsTitle}
-        subtitle={DirectorsSubtitle}
+        bigTitle={DirectorsTitle}
         directorCards={DirectorCardData}
       />
-      <EndWord title={endTitle} subtitle={endSubtitle} />
+      <EndWord bigTitle={endTitle} />
     </Space>
   );
 };

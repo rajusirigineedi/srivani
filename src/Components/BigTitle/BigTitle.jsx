@@ -4,7 +4,10 @@ import React from "react";
 import classes from "./BigTitle.module.css";
 
 const { Text } = Typography;
-const BigTitle = ({ title, subTitle, colorIndex, textSize }) => {
+const BigTitle = ({ bigTitle, textSize }) => {
+  if (!bigTitle) return <h1>hi</h1>;
+  const { title, subtitle, colorIndex } = bigTitle;
+  const _colorIndex = colorIndex.map((color) => color.index);
   const splitWordMap = title?.split(" ").map((word, index) => {
     return {
       word,
@@ -25,7 +28,7 @@ const BigTitle = ({ title, subTitle, colorIndex, textSize }) => {
               }`}
               style={{
                 color:
-                  colorIndex && colorIndex.includes(item.index)
+                  _colorIndex && _colorIndex.includes(item.index)
                     ? "var(--primary-color)"
                     : "var(--fontcolor-primary)",
               }}
@@ -37,7 +40,7 @@ const BigTitle = ({ title, subTitle, colorIndex, textSize }) => {
       </div>
 
       <div style={{ padding: splitWordMap?.length > 5 ? "0 20%" : "0" }}>
-        <Text className={classes["bigtitle--subheading"]}>{subTitle}</Text>
+        <Text className={classes["bigtitle--subheading"]}>{subtitle}</Text>
       </div>
     </Space>
   );

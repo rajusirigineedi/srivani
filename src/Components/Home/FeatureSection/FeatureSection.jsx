@@ -6,7 +6,7 @@ import React from "react";
 
 const { Text } = Typography;
 const FeatureSection = (props) => {
-  const { title, subtitle, fullImage, specialCard } = props;
+  const { bigTitle, fullImage, specialCard } = props;
   const _specialCards = specialCard.map((imageEntry) => {
     return {
       title: imageEntry.title,
@@ -21,7 +21,7 @@ const FeatureSection = (props) => {
       direction="vertical"
       size={72}
     >
-      <BigTitle title={title} subTitle={subtitle} colorIndex={[1, 2, 3]} />
+      <BigTitle bigTitle={bigTitle} />
       <div style={{ width: "50vw", height: "50vh" }}>
         <Image
           preview={false}
