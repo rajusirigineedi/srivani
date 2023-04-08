@@ -1,3 +1,4 @@
+import { useSmallScreenhook } from "@/hooks/useSmallScreenhook";
 import { GetImagesForFolder } from "@/Services/graphql/landing";
 import { useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
@@ -9,6 +10,7 @@ const { default: CustomButton } = require("../CustomButton/CustomButton");
 const { Text } = Typography;
 
 export const MiniGallery = ({ folder, bigTitle }) => {
+  const { _isSmallScreen } = useSmallScreenhook();
   const { data, loading, error, refetch } = useQuery(GetImagesForFolder, {
     variables: {
       folder,
@@ -81,7 +83,7 @@ export const MiniGallery = ({ folder, bigTitle }) => {
               position: "absolute",
               zIndex: 99,
               top: 48,
-              left: "calc(50% - 47.2rem + 4.8rem)",
+              left: _isSmallScreen ? 24 : "calc(50% - 47.2rem + 4.8rem)",
             }}
           >
             <CustomButton
@@ -95,7 +97,7 @@ export const MiniGallery = ({ folder, bigTitle }) => {
             preview={true}
             style={{ objectFit: "cover" }}
             alt="imagepreview"
-            src={activeImage.imageUrl}
+            src={activeImage.imageUrl ?? "/NoImage.jpg"}
           />
         </Space>
       ) : (
@@ -200,9 +202,9 @@ const ImageBox = ({ buttonName, onClick, imageUrl, title }) => {
           preview={false}
           width={"100%"}
           height={"100%"}
-          style={{ objectFit: "cover", cursor: "pointer" }}
+          style={{ objectFit: "cover", cursor: "pointer", borderRadius: 8 }}
           alt="imagepreview"
-          src={imageUrl} // TODO: No image url ...
+          src={imageUrl ?? "/NoImage.jpg"} // TODO: No image url ...
           onClick={() => {
             onClick({
               imageUrl,

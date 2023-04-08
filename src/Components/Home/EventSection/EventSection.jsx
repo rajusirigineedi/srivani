@@ -5,12 +5,14 @@ import { Radio } from "antd";
 import CustomButton from "@/Components/CustomButton/CustomButton";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useSmallScreenhook } from "@/hooks/useSmallScreenhook";
 
 const { Text } = Typography;
-
 const options = ["Culturals", "Acheivements", "Events", "Campus"];
 const EventSection = (props) => {
+  const { _isSmallScreen } = useSmallScreenhook();
   const { bigTitle, imageList } = props;
+
   const eventsImageList = imageList.data.map((imageEntry) => {
     return {
       title: imageEntry.attributes.title,
@@ -32,7 +34,7 @@ const EventSection = (props) => {
       direction="vertical"
       align="center"
       style={{ width: "100%", marginTop: 96 }}
-      size={48}
+      size={_isSmallScreen ? 36 : 48}
     >
       <BigTitle bigTitle={bigTitle} />
       <Radio.Group
@@ -40,7 +42,7 @@ const EventSection = (props) => {
         onChange={({ target: { value } }) => {
           setCurrTab(value);
         }}
-        size="large"
+        size={_isSmallScreen ? "medium" : "large"}
         value={currTab}
         optionType="button"
         buttonStyle="solid"
@@ -52,13 +54,14 @@ const EventSection = (props) => {
           md={12}
           lg={12}
           style={{
-            height: "50vh",
-            paddingRight: 96,
+            height: _isSmallScreen ? "35vh" : "50vh",
+            paddingRight: _isSmallScreen ? 0 : 96,
+            textAlign: _isSmallScreen ? "center" : "left",
           }}
         >
           <Space
             direction="vertical"
-            align="start"
+            align={_isSmallScreen ? "center" : "start"}
             size={24}
             style={{
               paddingRight: 12,
@@ -103,7 +106,7 @@ const EventSection = (props) => {
           md={12}
           lg={12}
           style={{
-            height: "50vh",
+            height: _isSmallScreen ? "35vh" : "50vh",
             paddingLeft: 12,
             width: "100%",
             borderRadius: "0.8rem",

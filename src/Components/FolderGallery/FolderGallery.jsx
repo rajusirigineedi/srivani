@@ -1,3 +1,4 @@
+import { useSmallScreenhook } from "@/hooks/useSmallScreenhook";
 import { Col, Image, Row, Space, Typography } from "antd";
 import { useRouter } from "next/router";
 import React, { useEffect, useMemo, useState } from "react";
@@ -7,6 +8,7 @@ import classes from "./FolderGallery.module.css";
 const { Text } = Typography;
 const FolderGallery = (props) => {
   const { imageFolders } = props;
+  const { lg } = useSmallScreenhook();
   const [folderImagesWithTitles, setFolderImagesWithTitles] =
     useState(imageFolders);
   const [folderState, setFolderState] = useState();
@@ -39,7 +41,12 @@ const FolderGallery = (props) => {
   };
 
   return (
-    <Space direction="vertical" align="center" size={24}>
+    <Space
+      direction="vertical"
+      align="center"
+      size={24}
+      style={lg && { padding: "0 20%" }}
+    >
       <Row>
         <Col
           style={{ height: "50vh", overflow: "hidden" }}
@@ -126,9 +133,10 @@ const GalleryThumbnailImage = ({ image, folder }) => {
         style={{
           objectFit: "cover",
           cursor: "pointer",
+          borderRadius: 8,
         }}
         alt="imagepreview"
-        src={image}
+        src={image ?? "/NoImage.jpg"}
       />
     </div>
   );

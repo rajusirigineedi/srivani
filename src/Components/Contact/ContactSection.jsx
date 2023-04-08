@@ -1,3 +1,4 @@
+import { useSmallScreenhook } from "@/hooks/useSmallScreenhook";
 import { Col, Image, Row, Space } from "antd";
 import React from "react";
 import BigTitle from "../BigTitle/BigTitle";
@@ -7,15 +8,16 @@ import Location from "./Location";
 
 const ContactSection = (props) => {
   const { contactTitle, locationTitle, locationImage } = props;
+  const { _isSmallScreen } = useSmallScreenhook();
   return (
     <Space
       direction="vertical"
-      style={{ width: "100%", marginTop: 72 }}
-      size={48}
+      style={{ width: "100%", marginTop: _isSmallScreen ? 24 : 72 }}
+      size={_isSmallScreen ? 36 : 48}
     >
       <Location bigTitle={locationTitle} image={locationImage} />
       <BigTitle bigTitle={contactTitle} />
-      <Contact />
+      <Contact _isSmallScreen={_isSmallScreen} />
       <Space
         style={{
           width: "100%",

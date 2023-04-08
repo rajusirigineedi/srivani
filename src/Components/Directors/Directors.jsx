@@ -1,3 +1,4 @@
+import { useSmallScreenhook } from "@/hooks/useSmallScreenhook";
 import { Space } from "antd";
 import { Typography } from "antd";
 import { Image } from "antd";
@@ -6,18 +7,23 @@ import classes from "./Directors.module.css";
 
 const { Text, Paragraph } = Typography;
 const Directors = ({ image, title, subTitle, text, paragraph }) => {
+  const { _isSmallScreen } = useSmallScreenhook();
   return (
-    <Space direction="vertical" size="middle">
+    <Space
+      direction="vertical"
+      size="middle"
+      style={_isSmallScreen && { textAlign: "center" }}
+    >
       <Image
         style={{
-          borderTopRightRadius: "20%",
-          borderBottomRightRadius: "8%",
+          borderRadius: 8,
           objectFit: "cover",
         }}
         width="313px"
         height="200px"
         src="error"
         alt="errimg"
+        preview={false}
         fallback={image}
       />
       <div>

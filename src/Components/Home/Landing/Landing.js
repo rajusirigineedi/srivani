@@ -1,4 +1,10 @@
 import CustomButton from "@/Components/CustomButton/CustomButton";
+import { useSmallScreenhook } from "@/hooks/useSmallScreenhook";
+import {
+  DownCircleFilled,
+  DownCircleTwoTone,
+  DownOutlined,
+} from "@ant-design/icons";
 import { Carousel, Col, Image, Row, Space, Typography } from "antd";
 import React, { useEffect, useMemo, useState } from "react";
 import classes from "./Landing.module.css";
@@ -21,17 +27,25 @@ const Landing = (props) => {
     NotificationString,
   } = props;
 
+  const { _isSmallScreen } = useSmallScreenhook();
+
   return (
     <div className={classes["home-landing"]}>
       <Row className={classes["home-landing-row"]} align="middle">
         <Col
           xs={24}
           sm={24}
-          md={9}
+          md={24}
           lg={9}
           className={classes["home-landing-columns"]}
+          style={_isSmallScreen && { height: "60vh" }}
         >
-          <Space direction="vertical" align="start" size={24}>
+          <Space
+            direction="vertical"
+            align={_isSmallScreen ? "center" : "start"}
+            size={24}
+            style={_isSmallScreen && { textAlign: "center" }}
+          >
             <Space direction="vertical" size={0}>
               <Text
                 className={classes["landing-text--primary"]}
@@ -57,24 +71,31 @@ const Landing = (props) => {
         <Col
           xs={24}
           sm={24}
-          md={15}
+          md={24}
           lg={15}
           style={{
-            paddingTop: "5vh",
-            paddingBottom: "5vh",
-            height: "80vh",
+            ...(!_isSmallScreen && {
+              paddingTop: "5vh",
+              paddingBottom: "5vh",
+            }),
+            height: _isSmallScreen ? "50vh" : "80vh",
           }}
           // className={classes["home-landing-columns"]}
         >
           <Carousel autoplay>
             {CarouselImages?.map((imageUrl, index) => (
               <div key={index}>
-                <div style={contentStyle}>
+                <div
+                  style={{
+                    ...contentStyle,
+                    ...(_isSmallScreen && { height: "40vh" }),
+                  }}
+                >
                   <Image
                     preview={false}
                     width={"100%"}
                     height={"100%"}
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: "cover", borderRadius: 8 }}
                     alt="imagepreview"
                     src={imageUrl}
                   />
@@ -90,7 +111,9 @@ const Landing = (props) => {
             {NotificationString}
           </Text>
         </div>
-        <div className={classes["home-landing-bottombar-down"]}>V</div>
+        <div className={classes["home-landing-bottombar-down"]}>
+          <DownCircleTwoTone style={{ fontSize: 18 }} />
+        </div>
       </div>
     </div>
   );

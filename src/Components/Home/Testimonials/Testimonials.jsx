@@ -17,11 +17,11 @@ const Testimonials = (props) => {
     <Space
       align="center"
       direction="vertical"
-      style={{ width: "100%", marginTop: 96 }}
+      style={{ width: "100%", padding: "0 20%", marginTop: 96 }}
       size={72}
     >
       <BigTitle bigTitle={bigTitle} />
-      <Row gutter={[24, 24]} justify="center" style={{ padding: "0 20%" }}>
+      <Row gutter={[24, 24]} justify="center">
         {_comments.map((comment, index) => (
           <Col key={index}>
             <CommentCard

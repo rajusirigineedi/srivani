@@ -1,5 +1,6 @@
 :root {
   --primary-color: #1180f1;
+  /* --primary-color: violet; */
   --primary-black: black;
   --primary-gray: #edf0f4;
   --primary-white: white;
@@ -47,3 +48,26 @@ a {
     color-scheme: dark;
   }
 } */
+
+@media (width <= 500px) {
+  :root {
+    --fontsize-xxxl: 3.4rem;
+    --fontsize-xxl: 2.4rem;
+    --fontsize-xl: 1.8rem;
+    --fontsize-lg: 1.4rem;
+    --fontsize-md: 1.2rem;
+    --fontsize-sm: 1rem;
+  }
+}
+
+/** few antd overrides **/
+.ant-radio-button-wrapper-checked {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  )::before {
+  display: none;
+}
