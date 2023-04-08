@@ -21,6 +21,7 @@ const Features = ({ logo, text, paragraph }) => {
         width="67px"
         height="67px"
         src={logo}
+        preview={false}
         alt="some image"
         fallback={logo}
       />

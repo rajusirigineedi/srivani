@@ -2,6 +2,7 @@
   background-color: var(--primary-color);
   color: var(--primary-white);
   border-radius: 50rem;
+  font-size: var(--fontsize-md);
   text-align: center;
 }
 

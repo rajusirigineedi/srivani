@@ -7,19 +7,18 @@ import classes from "./Contact.module.css";
 
 const { TextArea } = Input;
 const { Text, Paragraph } = Typography;
-const Contact = () => {
+const Contact = ({ _isSmallScreen }) => {
   return (
     <Space
       direction="vertical"
       style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        width: "100%",
+        padding: _isSmallScreen ? "0 10%" : "0 30%",
       }}
     >
       <Input className={classes["input1"]} placeholder="Enter Your Name" />
       <Input
-        className={classes["input2"]}
+        className={classes["input1"]}
         placeholder="Enter Your Phone number or email"
       />
       <TextArea

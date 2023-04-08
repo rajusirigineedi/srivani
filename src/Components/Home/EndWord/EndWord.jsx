@@ -1,10 +1,12 @@
 import BigTitle from "@/Components/BigTitle/BigTitle";
 import CustomButton from "@/Components/CustomButton/CustomButton";
+import { useSmallScreenhook } from "@/hooks/useSmallScreenhook";
 import { Space } from "antd";
 import React from "react";
 
 const EndWord = (props) => {
   const { bigTitle } = props;
+  const { _isSmallScreen } = useSmallScreenhook();
   return (
     <Space
       direction="vertical"
@@ -16,7 +18,10 @@ const EndWord = (props) => {
       }}
     >
       <BigTitle bigTitle={bigTitle} />
-      <CustomButton text={"Contact us to join your child"} size="lg" />
+      <CustomButton
+        text={"Contact us to join your child"}
+        size={_isSmallScreen ? "md" : "lg"}
+      />
     </Space>
   );
 };

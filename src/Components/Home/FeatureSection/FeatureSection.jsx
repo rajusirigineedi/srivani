@@ -1,12 +1,14 @@
 import BigTitle from "@/Components/BigTitle/BigTitle";
 import CustomButton from "@/Components/CustomButton/CustomButton";
 import Features from "@/Components/Features/Features";
+import { useSmallScreenhook } from "@/hooks/useSmallScreenhook";
 import { Col, Image, Row, Space, Typography } from "antd";
 import React from "react";
 
 const { Text } = Typography;
 const FeatureSection = (props) => {
   const { bigTitle, fullImage, specialCard } = props;
+  const { _isSmallScreen } = useSmallScreenhook();
   const _specialCards = specialCard.map((imageEntry) => {
     return {
       title: imageEntry.title,
@@ -19,10 +21,10 @@ const FeatureSection = (props) => {
       style={{ width: "100%", marginTop: 96 }}
       align="center"
       direction="vertical"
-      size={72}
+      size={_isSmallScreen ? 36 : 72}
     >
       <BigTitle bigTitle={bigTitle} />
-      <div style={{ width: "50vw", height: "50vh" }}>
+      <div style={{ width: _isSmallScreen ? "90vw" : "50vw", height: "50vh" }}>
         <Image
           preview={false}
           height="100%"

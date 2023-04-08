@@ -5,6 +5,13 @@ import { Typography } from "antd";
 const { Text, Link } = Typography;
 import classes from "./Footer.module.css";
 import FooterLogo from "./FooterLogo/FooterLogo";
+import {
+  FacebookOutlined,
+  InstagramFilled,
+  InstagramOutlined,
+  TwitterOutlined,
+  YoutubeOutlined,
+} from "@ant-design/icons";
 
 const Footer = (props) => {
   return (
@@ -107,29 +114,14 @@ const FooterLinkSection = ({ text, items, suffix }) => {
 const SocialIcons = () => {
   return (
     <Space>
-      <div
-        style={{
-          backgroundColor: "var(--fontcolor-secondary)",
-          width: 36,
-          height: 36,
-          borderRadius: 8,
-        }}
+      <InstagramOutlined
+        style={{ fontSize: 24, color: "var(--fontcolor-secondary)" }}
       />
-      <div
-        style={{
-          backgroundColor: "var(--fontcolor-secondary)",
-          width: 36,
-          height: 36,
-          borderRadius: 8,
-        }}
+      <FacebookOutlined
+        style={{ fontSize: 24, color: "var(--fontcolor-secondary)" }}
       />
-      <div
-        style={{
-          backgroundColor: "var(--fontcolor-secondary)",
-          width: 36,
-          height: 36,
-          borderRadius: 8,
-        }}
+      <TwitterOutlined
+        style={{ fontSize: 24, color: "var(--fontcolor-secondary)" }}
       />
     </Space>
   );
