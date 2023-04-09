@@ -7,6 +7,9 @@ const { Drawer, Space } = require("antd");
 const { NavLinks } = require("../NavLinks/NavLinks");
 
 const HeaderDrawer = ({ showDrawer, setShowDrawer }) => {
+  const closeDrawer = () => {
+    setShowDrawer(false);
+  };
   return (
     <Drawer
       open={showDrawer}
@@ -16,7 +19,7 @@ const HeaderDrawer = ({ showDrawer, setShowDrawer }) => {
         paddingBottom: 36,
         display: "flex",
       }}
-      onClose={() => setShowDrawer(false)}
+      onClose={closeDrawer}
     >
       <Space
         direction="vertical"
@@ -31,7 +34,7 @@ const HeaderDrawer = ({ showDrawer, setShowDrawer }) => {
           align="center"
           size={36}
         >
-          <NavLinks direction={"vertical"} />
+          <NavLinks closeDrawer={closeDrawer} direction={"vertical"} />
           <CustomButton text={"Join now"} />
         </Space>
         <FooterLogo />
