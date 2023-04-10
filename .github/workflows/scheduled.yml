@@ -1,0 +1,10 @@
+name: 10min cron job
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: My GraphQL Query
+        run: curl -X POST -H "Content-Type: application/json" -d '{"query":"query { endWord { data { attributes { BigTitle { title } } } } }"}' https://srivani-strapi-backend.onrender.com/graphql/
